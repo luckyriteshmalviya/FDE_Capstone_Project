@@ -1,0 +1,4 @@
+A11 local fault injection verified: classifier timeout, classifier outage, synthetic retrieval rate limit, validator outage, malformed input, batch crash continuation.
+Full suite: 23 passed.
+Unattended validation: 80 processed, 47 answered, 33 escalated, 0 blocked, complete_run=true.
+Limit: no real external provider; HTTP 429 retries/backoff not tested.

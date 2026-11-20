@@ -1,0 +1,6 @@
+scikit-learn>=1.3,<2
+fastapi>=0.100,<1
+uvicorn>=0.23,<1
+pytest>=7,<10
+# FastAPI/Starlette TestClient dependency (required for API regression tests)
+httpx>=0.27,<1

@@ -1,0 +1,4661 @@
+[
+  {
+    "ticket_id": "VAL-0001",
+    "channel": "forum",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "api_key_issue",
+      "urgency": "medium",
+      "confidence": 0.5218,
+      "alternatives": [
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0312
+        },
+        {
+          "intent": "security_incident",
+          "confidence": 0.0279
+        },
+        {
+          "intent": "sso_configuration",
+          "confidence": 0.0252
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-AUTH-004#p3",
+        "doc_id": "DOC-AUTH-004",
+        "title": "API key rotation and scope management",
+        "text": "## Resolution\n\n1. Check the API keys page for the key's status and expiry. Revoked and expired keys are listed with the date and the user who acted.\n2. Review the scopes attached to the key. Read-only keys cannot write, and project-scoped keys cannot reach organisation endpoints.\n3. To rotate without downtime, create the replacement key first, deploy it, confirm traffic has moved, then revoke the old key.\n4. If a key has been exposed publicly, revoke it immediately rather than waiting for the rotation window.",
+        "score": 0.1816
+      },
+      {
+        "passage_id": "DOC-AUTH-004#p1",
+        "doc_id": "DOC-AUTH-004",
+        "title": "API key rotation and scope management",
+        "text": "## Symptoms\n\n- A previously working key returns 401 Unauthorized\n- A key works for some endpoints and not others\n- A key needs replacing after accidental exposure",
+        "score": 0.1769
+      },
+      {
+        "passage_id": "DOC-INT-001#p4",
+        "doc_id": "DOC-INT-001",
+        "title": "Connecting continuous integration pipelines",
+        "text": "## Notes\n\nService account keys do not expire by default. Set an expiry and rotate on a schedule.",
+        "score": 0.1615
+      }
+    ],
+    "answer": "According to our support documentation: 1. Check the API keys page for the key's status and expiry. Revoked and expired keys are listed with the date and the user who acted. [DOC-AUTH-004#p3]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.00358,
+    "response_time_minutes": 5.966666666666666e-05,
+    "input_index": 0
+  },
+  {
+    "ticket_id": "VAL-0002",
+    "channel": "chat",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Explicit safety restriction on supplied ticket",
+    "classification": {
+      "intent": "unclear_request",
+      "urgency": "medium",
+      "confidence": 0.301,
+      "alternatives": [
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0472
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.042
+        },
+        {
+          "intent": "sso_configuration",
+          "confidence": 0.039
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-DEPLOY-002#p1",
+        "doc_id": "DOC-DEPLOY-002",
+        "title": "Rolling back a failed release",
+        "text": "## Symptoms\n\n- A release has introduced errors and must be reverted\n- The previous revision is needed while a fix is prepared",
+        "score": 0.1097
+      },
+      {
+        "passage_id": "DOC-SEC-002#p2",
+        "doc_id": "DOC-SEC-002",
+        "title": "Handling exposed secrets and credential rotation",
+        "text": "## Common causes\n\n- Configuration was committed rather than referenced from the environment\n- The application prints its configuration during startup\n- A key was shared in a support ticket or a chat message",
+        "score": 0.1084
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0002:  Following up on my previous message. Any update?",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.00301,
+    "response_time_minutes": 5.016666666666667e-05,
+    "input_index": 1
+  },
+  {
+    "ticket_id": "VAL-0003",
+    "channel": "docs_comment",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Explicit safety restriction on supplied ticket",
+    "classification": {
+      "intent": "unclear_request",
+      "urgency": "medium",
+      "confidence": 0.2481,
+      "alternatives": [
+        {
+          "intent": "database_issue",
+          "confidence": 0.0449
+        },
+        {
+          "intent": "data_export",
+          "confidence": 0.0427
+        },
+        {
+          "intent": "billing_query",
+          "confidence": 0.0423
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-AUTH-004#p1",
+        "doc_id": "DOC-AUTH-004",
+        "title": "API key rotation and scope management",
+        "text": "## Symptoms\n\n- A previously working key returns 401 Unauthorized\n- A key works for some endpoints and not others\n- A key needs replacing after accidental exposure",
+        "score": 0.107
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0003: It is not working nothing is loading properly today. Can someone look into this? kindly check and revert.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.004223,
+    "response_time_minutes": 7.038333333333334e-05,
+    "input_index": 2
+  },
+  {
+    "ticket_id": "VAL-0004",
+    "channel": "email",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "authentication_failure",
+      "urgency": "medium",
+      "confidence": 0.2925,
+      "alternatives": [
+        {
+          "intent": "deployment_failure",
+          "confidence": 0.044
+        },
+        {
+          "intent": "configuration_help",
+          "confidence": 0.0413
+        },
+        {
+          "intent": "onboarding",
+          "confidence": 0.0409
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-AUTH-002#p1",
+        "doc_id": "DOC-AUTH-002",
+        "title": "Multi-factor authentication setup and recovery",
+        "text": "## Symptoms\n\n- The authenticator code is rejected as invalid\n- A user has lost the device holding their authenticator\n- Recovery codes were never downloaded",
+        "score": 0.296
+      },
+      {
+        "passage_id": "DOC-AUTH-002#p3",
+        "doc_id": "DOC-AUTH-002",
+        "title": "Multi-factor authentication setup and recovery",
+        "text": "## Resolution\n\n1. Ask the user to check that automatic time synchronisation is enabled on the device generating the code. Drift is the most common cause by a wide margin.\n2. If the device is lost, the user should sign in with one of their recovery codes and then re-enrol a new device from the security page.\n3. Where no recovery codes are available, an account administrator can reset multi-factor authentication for that user from the team members page.\n4. If the user is the sole administrator and has no recovery codes, identity verification through support is required and takes up to one business day.",
+        "score": 0.1497
+      },
+      {
+        "passage_id": "DOC-AUTH-002#p2",
+        "doc_id": "DOC-AUTH-002",
+        "title": "Multi-factor authentication setup and recovery",
+        "text": "## Common causes\n\n- Device clock drift of more than thirty seconds invalidates time-based codes\n- The authenticator was enrolled against a different account\n- Recovery codes were regenerated, invalidating the older set",
+        "score": 0.1487
+      }
+    ],
+    "answer": "According to our support documentation: - The authenticator code is rejected as invalid [DOC-AUTH-002#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.003948,
+    "response_time_minutes": 6.58e-05,
+    "input_index": 3
+  },
+  {
+    "ticket_id": "VAL-0005",
+    "channel": "chat",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "api_usage_question",
+      "urgency": "low",
+      "confidence": 0.6028,
+      "alternatives": [
+        {
+          "intent": "database_issue",
+          "confidence": 0.0241
+        },
+        {
+          "intent": "data_export",
+          "confidence": 0.0221
+        },
+        {
+          "intent": "sso_configuration",
+          "confidence": 0.0207
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-API-002#p3",
+        "doc_id": "DOC-API-002",
+        "title": "Pagination and handling large result sets",
+        "text": "## Resolution\n\n1. Use cursor pagination for anything that may change while you iterate. Offset pagination will skip or repeat records when items are inserted mid-iteration.\n2. Pass the next_cursor value from each response as the cursor parameter of the following request, and stop when it is null.\n3. Keep page size at or below two hundred. Larger requests are rejected rather than truncated.\n4. For very large extracts, use the export endpoint, which runs asynchronously and returns a download link.",
+        "score": 0.1833
+      },
+      {
+        "passage_id": "DOC-API-002#p4",
+        "doc_id": "DOC-API-002",
+        "title": "Pagination and handling large result sets",
+        "text": "## Notes\n\nCursors expire after one hour. Long-running iterations should handle expiry by restarting from a recorded checkpoint.",
+        "score": 0.1608
+      }
+    ],
+    "answer": "According to our support documentation: 1. Use cursor pagination for anything that may change while you iterate. Offset pagination will skip or repeat records when items are inserted mid-iteration. [DOC-API-002#p3]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.003357,
+    "response_time_minutes": 5.5950000000000005e-05,
+    "input_index": 4
+  },
+  {
+    "ticket_id": "VAL-0006",
+    "channel": "email",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "authentication_failure",
+      "urgency": "medium",
+      "confidence": 0.3371,
+      "alternatives": [
+        {
+          "intent": "performance_degradation",
+          "confidence": 0.0422
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0369
+        },
+        {
+          "intent": "security_incident",
+          "confidence": 0.0367
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-AUTH-001#p1",
+        "doc_id": "DOC-AUTH-001",
+        "title": "Resolving invalid credential errors on login",
+        "text": "## Symptoms\n\n- The console returns 'Invalid credentials' despite a correct password\n- Login succeeds in one browser but fails in another\n- The CLI reports authentication failure after a working period",
+        "score": 0.2253
+      },
+      {
+        "passage_id": "DOC-AUTH-001#p2",
+        "doc_id": "DOC-AUTH-001",
+        "title": "Resolving invalid credential errors on login",
+        "text": "## Common causes\n\n- The account is locked after five consecutive failed attempts\n- A stale session cookie is being sent alongside new credentials\n- The password was changed in another session and the client cached the old one",
+        "score": 0.1441
+      },
+      {
+        "passage_id": "DOC-AUTH-002#p1",
+        "doc_id": "DOC-AUTH-002",
+        "title": "Multi-factor authentication setup and recovery",
+        "text": "## Symptoms\n\n- The authenticator code is rejected as invalid\n- A user has lost the device holding their authenticator\n- Recovery codes were never downloaded",
+        "score": 0.114
+      }
+    ],
+    "answer": "According to our support documentation: - The console returns 'Invalid credentials' despite a correct password [DOC-AUTH-001#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.00295,
+    "response_time_minutes": 4.9166666666666665e-05,
+    "input_index": 5
+  },
+  {
+    "ticket_id": "VAL-0007",
+    "channel": "chat",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Explicit safety restriction on supplied ticket",
+    "classification": {
+      "intent": "unclear_request",
+      "urgency": "medium",
+      "confidence": 0.3121,
+      "alternatives": [
+        {
+          "intent": "security_incident",
+          "confidence": 0.0445
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0416
+        },
+        {
+          "intent": "data_residency",
+          "confidence": 0.038
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-ACCT-001#p1",
+        "doc_id": "DOC-ACCT-001",
+        "title": "Managing team members, roles and permissions",
+        "text": "## Symptoms\n\n- A user cannot access a project they should be able to\n- A departing user needs removing\n- Permissions need narrowing after a review",
+        "score": 0.1693
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0007:  We have a problem and need someone to call us urgently.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.002413,
+    "response_time_minutes": 4.021666666666667e-05,
+    "input_index": 6
+  },
+  {
+    "ticket_id": "VAL-0008",
+    "channel": "chat",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Low classification confidence",
+    "classification": {
+      "intent": "account_access",
+      "urgency": "medium",
+      "confidence": 0.2082,
+      "alternatives": [
+        {
+          "intent": "sso_configuration",
+          "confidence": 0.0473
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0456
+        },
+        {
+          "intent": "onboarding",
+          "confidence": 0.0432
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-ACCT-001#p2",
+        "doc_id": "DOC-ACCT-001",
+        "title": "Managing team members, roles and permissions",
+        "text": "## Common causes\n\n- The role was granted at project scope rather than organisation scope\n- The invitation was never accepted and the account does not exist\n- A group membership grants broader access than the direct role suggests",
+        "score": 0.2904
+      },
+      {
+        "passage_id": "DOC-ACCT-001#p3",
+        "doc_id": "DOC-ACCT-001",
+        "title": "Managing team members, roles and permissions",
+        "text": "## Resolution\n\n1. Check the effective permissions view for the user, which resolves direct roles and group memberships together.\n2. Confirm the invitation was accepted. Pending invitations appear in a separate section and expire after seven days.\n3. Remove a departing user rather than only changing their password, and revoke any API keys they created.\n4. Prefer group membership to direct role assignment, so that access can be reviewed in one place.",
+        "score": 0.2852
+      },
+      {
+        "passage_id": "DOC-ACCT-001#p0",
+        "doc_id": "DOC-ACCT-001",
+        "title": "Managing team members, roles and permissions",
+        "text": "# Managing team members, roles and permissions\n\n**Applies to:** All plans",
+        "score": 0.2241
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0008:  We are tightening permissions after a review and I want to understand how group membership interacts with directly assigned roles.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.003518,
+    "response_time_minutes": 5.863333333333333e-05,
+    "input_index": 7
+  },
+  {
+    "ticket_id": "VAL-0009",
+    "channel": "docs_comment",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Explicit safety restriction on supplied ticket",
+    "classification": {
+      "intent": "compliance_request",
+      "urgency": "medium",
+      "confidence": 0.4621,
+      "alternatives": [
+        {
+          "intent": "security_incident",
+          "confidence": 0.0337
+        },
+        {
+          "intent": "data_export",
+          "confidence": 0.033
+        },
+        {
+          "intent": "account_access",
+          "confidence": 0.0304
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-SEC-003#p3",
+        "doc_id": "DOC-SEC-003",
+        "title": "Audit logging and compliance evidence",
+        "text": "## Resolution\n\n1. Filter the audit log by actor, resource and date range. Every administrative action carries the user, the address and the outcome.\n2. Export the relevant period to object storage for anything needed beyond the retention window. Exports are not subject to retention limits.\n3. Configure continuous export to your own storage if a policy requires retention longer than the plan provides.\n4. Note that read access to resources is not logged on Business plans, only administrative and configuration changes.",
+        "score": 0.2059
+      },
+      {
+        "passage_id": "DOC-SEC-003#p1",
+        "doc_id": "DOC-SEC-003",
+        "title": "Audit logging and compliance evidence",
+        "text": "## Symptoms\n\n- An auditor has requested access records\n- An event that should be logged cannot be found\n- Log retention is shorter than a policy requires",
+        "score": 0.2022
+      },
+      {
+        "passage_id": "DOC-SEC-003#p2",
+        "doc_id": "DOC-SEC-003",
+        "title": "Audit logging and compliance evidence",
+        "text": "## Common causes\n\n- The event predates the retention window\n- The event type is not covered by the audit log\n- The organisation is on a plan with shorter retention",
+        "score": 0.1558
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0009: Retention period question We need to demonstrate that read access to customer records is logged. I cannot find these events in the audit log.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.002329,
+    "response_time_minutes": 3.8816666666666664e-05,
+    "input_index": 8
+  },
+  {
+    "ticket_id": "VAL-0010",
+    "channel": "docs_comment",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "billing_query",
+      "urgency": "medium",
+      "confidence": 0.6511,
+      "alternatives": [
+        {
+          "intent": "onboarding",
+          "confidence": 0.0201
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0193
+        },
+        {
+          "intent": "account_access",
+          "confidence": 0.0192
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-BILL-001#p1",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "## Symptoms\n\n- The invoice is higher than expected\n- Charges appear for a service that is not in use\n- The billing period does not align with the calendar month",
+        "score": 0.3556
+      },
+      {
+        "passage_id": "DOC-INT-002#p1",
+        "doc_id": "DOC-INT-002",
+        "title": "Third party monitoring and log forwarding",
+        "text": "## Symptoms\n\n- Logs are not arriving at the external destination\n- Metrics are delayed compared with the console\n- Forwarded volume is higher than expected",
+        "score": 0.149
+      },
+      {
+        "passage_id": "DOC-BILL-001#p0",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "# Understanding your invoice and usage breakdown\n\n**Applies to:** All plans",
+        "score": 0.1288
+      }
+    ],
+    "answer": "According to our support documentation: - The invoice is higher than expected [DOC-BILL-001#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.0021,
+    "response_time_minutes": 3.5e-05,
+    "input_index": 9
+  },
+  {
+    "ticket_id": "VAL-0011",
+    "channel": "forum",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Sensitive intent requires human handling",
+    "classification": {
+      "intent": "rollback_request",
+      "urgency": "high",
+      "confidence": 0.7304,
+      "alternatives": [
+        {
+          "intent": "data_residency",
+          "confidence": 0.0156
+        },
+        {
+          "intent": "quota_or_overage",
+          "confidence": 0.0146
+        },
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0145
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-DEPLOY-002#p1",
+        "doc_id": "DOC-DEPLOY-002",
+        "title": "Rolling back a failed release",
+        "text": "## Symptoms\n\n- A release has introduced errors and must be reverted\n- The previous revision is needed while a fix is prepared",
+        "score": 0.3369
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0011: How do I revert to the previous revision We shipped a release yesterday morning that has broken checkout for a portion of our customers. We need to get back to the previous version quickly. What is the fastest safe route?",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.002213,
+    "response_time_minutes": 3.688333333333333e-05,
+    "input_index": 10
+  },
+  {
+    "ticket_id": "VAL-0012",
+    "channel": "email",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Sensitive intent requires human handling",
+    "classification": {
+      "intent": "rollback_request",
+      "urgency": "high",
+      "confidence": 0.7497,
+      "alternatives": [
+        {
+          "intent": "database_issue",
+          "confidence": 0.0146
+        },
+        {
+          "intent": "quota_or_overage",
+          "confidence": 0.0142
+        },
+        {
+          "intent": "deployment_failure",
+          "confidence": 0.013
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-DEPLOY-002#p1",
+        "doc_id": "DOC-DEPLOY-002",
+        "title": "Rolling back a failed release",
+        "text": "## Symptoms\n\n- A release has introduced errors and must be reverted\n- The previous revision is needed while a fix is prepared",
+        "score": 0.3045
+      },
+      {
+        "passage_id": "DOC-DEPLOY-002#p3",
+        "doc_id": "DOC-DEPLOY-002",
+        "title": "Rolling back a failed release",
+        "text": "## Resolution\n\n1. Open the revisions page for the service and identify the last revision that was healthy.\n2. Select roll back on that revision. Traffic moves within roughly thirty seconds and no rebuild takes place.\n3. If the release included a database migration, roll the migration back before the service, or the older code will encounter a schema it does not expect.\n4. Record the incident and the reason for the rollback before deploying a fix, while the detail is still fresh.",
+        "score": 0.2877
+      },
+      {
+        "passage_id": "DOC-DEPLOY-002#p0",
+        "doc_id": "DOC-DEPLOY-002",
+        "title": "Rolling back a failed release",
+        "text": "# Rolling back a failed release\n\n**Applies to:** Container Service, Functions",
+        "score": 0.1581
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0012: Need to roll back the latest release How do I revert to an earlier revision? The release we put out this morning is causing errors and I would rather roll back than try to fix forward.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.001903,
+    "response_time_minutes": 3.171666666666667e-05,
+    "input_index": 11
+  },
+  {
+    "ticket_id": "VAL-0013",
+    "channel": "docs_comment",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "billing_query",
+      "urgency": "low",
+      "confidence": 0.6552,
+      "alternatives": [
+        {
+          "intent": "quota_or_overage",
+          "confidence": 0.0197
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0196
+        },
+        {
+          "intent": "data_residency",
+          "confidence": 0.0195
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-BILL-001#p1",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "## Symptoms\n\n- The invoice is higher than expected\n- Charges appear for a service that is not in use\n- The billing period does not align with the calendar month",
+        "score": 0.3202
+      },
+      {
+        "passage_id": "DOC-BILL-001#p2",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "## Common causes\n\n- Usage-based charges accrued beyond the plan allowance\n- A resource was left running in a non-production environment\n- The billing period runs from the subscription date rather than the first of the month",
+        "score": 0.1898
+      },
+      {
+        "passage_id": "DOC-BILL-001#p3",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "## Resolution\n\n1. Open the usage breakdown for the period, which itemises charges by service and by environment.\n2. Look for resources in staging or development environments, which are billed at the same rate as production.\n3. Check the billing period dates at the top of the invoice. The period runs from the anniversary of the subscription date.\n4. Set a usage alert on the billing page so that unexpected accrual is noticed during the period rather than at the end of it.",
+        "score": 0.125
+      }
+    ],
+    "answer": "According to our support documentation: - The invoice is higher than expected [DOC-BILL-001#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001623,
+    "response_time_minutes": 2.705e-05,
+    "input_index": 12
+  },
+  {
+    "ticket_id": "VAL-0014",
+    "channel": "email",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Sensitive intent requires human handling",
+    "classification": {
+      "intent": "rollback_request",
+      "urgency": "high",
+      "confidence": 0.4656,
+      "alternatives": [
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0313
+        },
+        {
+          "intent": "data_residency",
+          "confidence": 0.031
+        },
+        {
+          "intent": "api_key_issue",
+          "confidence": 0.0302
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-DEPLOY-002#p1",
+        "doc_id": "DOC-DEPLOY-002",
+        "title": "Rolling back a failed release",
+        "text": "## Symptoms\n\n- A release has introduced errors and must be reverted\n- The previous revision is needed while a fix is prepared",
+        "score": 0.2156
+      },
+      {
+        "passage_id": "DOC-DEPLOY-002#p0",
+        "doc_id": "DOC-DEPLOY-002",
+        "title": "Rolling back a failed release",
+        "text": "# Rolling back a failed release\n\n**Applies to:** Container Service, Functions",
+        "score": 0.1696
+      },
+      {
+        "passage_id": "DOC-DEPLOY-002#p2",
+        "doc_id": "DOC-DEPLOY-002",
+        "title": "Rolling back a failed release",
+        "text": "## Common causes\n\n- A defect reached production that testing did not catch\n- A configuration change had unintended effects",
+        "score": 0.1297
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0014: Bad release in production we shipped a release around 14:00 yesterday that has broken checkout for portion of our customers. We need to get back to the previous version quickly. waiting for your reply.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.001502,
+    "response_time_minutes": 2.5033333333333333e-05,
+    "input_index": 13
+  },
+  {
+    "ticket_id": "VAL-0015",
+    "channel": "forum",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Explicit safety restriction on supplied ticket",
+    "classification": {
+      "intent": "unclear_request",
+      "urgency": "medium",
+      "confidence": 0.4453,
+      "alternatives": [
+        {
+          "intent": "security_incident",
+          "confidence": 0.0375
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0327
+        },
+        {
+          "intent": "data_residency",
+          "confidence": 0.0297
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-DEPLOY-002#p1",
+        "doc_id": "DOC-DEPLOY-002",
+        "title": "Rolling back a failed release",
+        "text": "## Symptoms\n\n- A release has introduced errors and must be reverted\n- The previous revision is needed while a fix is prepared",
+        "score": 0.1148
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0015: Urgent help needed We have a problem and need someone to call us urgently.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.001368,
+    "response_time_minutes": 2.2800000000000002e-05,
+    "input_index": 14
+  },
+  {
+    "ticket_id": "VAL-0016",
+    "channel": "chat",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "performance_degradation",
+      "urgency": "high",
+      "confidence": 0.3135,
+      "alternatives": [
+        {
+          "intent": "database_issue",
+          "confidence": 0.0409
+        },
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0372
+        },
+        {
+          "intent": "deployment_failure",
+          "confidence": 0.0358
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-PERF-002#p0",
+        "doc_id": "DOC-PERF-002",
+        "title": "Autoscaling behaviour and instance limits",
+        "text": "# Autoscaling behaviour and instance limits\n\n**Applies to:** Container Service",
+        "score": 0.1553
+      },
+      {
+        "passage_id": "DOC-PERF-002#p1",
+        "doc_id": "DOC-PERF-002",
+        "title": "Autoscaling behaviour and instance limits",
+        "text": "## Symptoms\n\n- The service does not scale up under load\n- Scaling happens later than expected\n- Instance count oscillates",
+        "score": 0.1422
+      }
+    ],
+    "answer": "According to our support documentation: **Applies to:** Container Service [DOC-PERF-002#p0]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001414,
+    "response_time_minutes": 2.3566666666666666e-05,
+    "input_index": 15
+  },
+  {
+    "ticket_id": "VAL-0017",
+    "channel": "docs_comment",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Explicit safety restriction on supplied ticket",
+    "classification": {
+      "intent": "unclear_request",
+      "urgency": "medium",
+      "confidence": 0.2298,
+      "alternatives": [
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0473
+        },
+        {
+          "intent": "billing_query",
+          "confidence": 0.0465
+        },
+        {
+          "intent": "data_residency",
+          "confidence": 0.0456
+        }
+      ]
+    },
+    "sources": [],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0017: Question It is not working. Please help.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.001261,
+    "response_time_minutes": 2.1016666666666665e-05,
+    "input_index": 16
+  },
+  {
+    "ticket_id": "VAL-0018",
+    "channel": "email",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "api_usage_question",
+      "urgency": "low",
+      "confidence": 0.7016,
+      "alternatives": [
+        {
+          "intent": "database_issue",
+          "confidence": 0.0174
+        },
+        {
+          "intent": "sso_configuration",
+          "confidence": 0.0166
+        },
+        {
+          "intent": "data_export",
+          "confidence": 0.0163
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-API-002#p1",
+        "doc_id": "DOC-API-002",
+        "title": "Pagination and handling large result sets",
+        "text": "## Symptoms\n\n- Only the first page of results is returned\n- Iterating through results misses or duplicates records\n- Large queries time out",
+        "score": 0.2173
+      },
+      {
+        "passage_id": "DOC-API-002#p3",
+        "doc_id": "DOC-API-002",
+        "title": "Pagination and handling large result sets",
+        "text": "## Resolution\n\n1. Use cursor pagination for anything that may change while you iterate. Offset pagination will skip or repeat records when items are inserted mid-iteration.\n2. Pass the next_cursor value from each response as the cursor parameter of the following request, and stop when it is null.\n3. Keep page size at or below two hundred. Larger requests are rejected rather than truncated.\n4. For very large extracts, use the export endpoint, which runs asynchronously and returns a download link.",
+        "score": 0.1933
+      },
+      {
+        "passage_id": "DOC-API-002#p4",
+        "doc_id": "DOC-API-002",
+        "title": "Pagination and handling large result sets",
+        "text": "## Notes\n\nCursors expire after one hour. Long-running iterations should handle expiry by restarting from a recorded checkpoint.",
+        "score": 0.1638
+      }
+    ],
+    "answer": "According to our support documentation: - Only the first page of results is returned [DOC-API-002#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001523,
+    "response_time_minutes": 2.5383333333333335e-05,
+    "input_index": 17
+  },
+  {
+    "ticket_id": "VAL-0019",
+    "channel": "email",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "account_access",
+      "urgency": "medium",
+      "confidence": 0.2972,
+      "alternatives": [
+        {
+          "intent": "database_issue",
+          "confidence": 0.0415
+        },
+        {
+          "intent": "unclear_request",
+          "confidence": 0.0412
+        },
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0405
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-SEC-001#p2",
+        "doc_id": "DOC-SEC-001",
+        "title": "Responding to a suspected account compromise",
+        "text": "## Common causes\n\n- Credentials were reused from a service that suffered a breach\n- An API key was committed to a public repository\n- A former team member retained access after leaving",
+        "score": 0.2095
+      },
+      {
+        "passage_id": "DOC-ACCT-001#p1",
+        "doc_id": "DOC-ACCT-001",
+        "title": "Managing team members, roles and permissions",
+        "text": "## Symptoms\n\n- A user cannot access a project they should be able to\n- A departing user needs removing\n- Permissions need narrowing after a review",
+        "score": 0.1577
+      },
+      {
+        "passage_id": "DOC-ACCT-001#p3",
+        "doc_id": "DOC-ACCT-001",
+        "title": "Managing team members, roles and permissions",
+        "text": "## Resolution\n\n1. Check the effective permissions view for the user, which resolves direct roles and group memberships together.\n2. Confirm the invitation was accepted. Pending invitations appear in a separate section and expire after seven days.\n3. Remove a departing user rather than only changing their password, and revoke any API keys they created.\n4. Prefer group membership to direct role assignment, so that access can be reviewed in one place.",
+        "score": 0.1171
+      }
+    ],
+    "answer": "According to our support documentation: - Credentials were reused from a service that suffered a breach [DOC-SEC-001#p2]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001377,
+    "response_time_minutes": 2.295e-05,
+    "input_index": 18
+  },
+  {
+    "ticket_id": "VAL-0020",
+    "channel": "email",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Explicit safety restriction on supplied ticket",
+    "classification": {
+      "intent": "feature_request",
+      "urgency": "low",
+      "confidence": 0.438,
+      "alternatives": [
+        {
+          "intent": "onboarding",
+          "confidence": 0.0356
+        },
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0314
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0302
+        }
+      ]
+    },
+    "sources": [],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0020: Would like custom retention Are staged rollouts on the roadmap? We would like to move traffic gradually rather than all at once.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.001328,
+    "response_time_minutes": 2.2133333333333334e-05,
+    "input_index": 19
+  },
+  {
+    "ticket_id": "VAL-0021",
+    "channel": "chat",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Sensitive intent requires human handling",
+    "classification": {
+      "intent": "rollback_request",
+      "urgency": "high",
+      "confidence": 0.6141,
+      "alternatives": [
+        {
+          "intent": "data_residency",
+          "confidence": 0.0233
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0216
+        },
+        {
+          "intent": "compliance_request",
+          "confidence": 0.021
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-DEPLOY-002#p1",
+        "doc_id": "DOC-DEPLOY-002",
+        "title": "Rolling back a failed release",
+        "text": "## Symptoms\n\n- A release has introduced errors and must be reverted\n- The previous revision is needed while a fix is prepared",
+        "score": 0.2012
+      },
+      {
+        "passage_id": "DOC-DEPLOY-002#p0",
+        "doc_id": "DOC-DEPLOY-002",
+        "title": "Rolling back a failed release",
+        "text": "# Rolling back a failed release\n\n**Applies to:** Container Service, Functions",
+        "score": 0.1282
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0021:  We shipped a release earlier today that has broken checkout for a portion of our customers. We need to get back to the previous version quickly. What is the fastest safe route?",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.002409,
+    "response_time_minutes": 4.015e-05,
+    "input_index": 20
+  },
+  {
+    "ticket_id": "VAL-0022",
+    "channel": "docs_comment",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "performance_degradation",
+      "urgency": "high",
+      "confidence": 0.3508,
+      "alternatives": [
+        {
+          "intent": "database_issue",
+          "confidence": 0.0406
+        },
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0349
+        },
+        {
+          "intent": "deployment_failure",
+          "confidence": 0.0344
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-PERF-002#p0",
+        "doc_id": "DOC-PERF-002",
+        "title": "Autoscaling behaviour and instance limits",
+        "text": "# Autoscaling behaviour and instance limits\n\n**Applies to:** Container Service",
+        "score": 0.1527
+      },
+      {
+        "passage_id": "DOC-PERF-002#p1",
+        "doc_id": "DOC-PERF-002",
+        "title": "Autoscaling behaviour and instance limits",
+        "text": "## Symptoms\n\n- The service does not scale up under load\n- Scaling happens later than expected\n- Instance count oscillates",
+        "score": 0.1382
+      }
+    ],
+    "answer": "According to our support documentation: **Applies to:** Container Service [DOC-PERF-002#p0]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001725,
+    "response_time_minutes": 2.875e-05,
+    "input_index": 21
+  },
+  {
+    "ticket_id": "VAL-0023",
+    "channel": "email",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "No safe extractive passage",
+    "classification": {
+      "intent": "onboarding",
+      "urgency": "low",
+      "confidence": 0.4506,
+      "alternatives": [
+        {
+          "intent": "database_issue",
+          "confidence": 0.0328
+        },
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0311
+        },
+        {
+          "intent": "data_residency",
+          "confidence": 0.0305
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-ONB-002#p0",
+        "doc_id": "DOC-ONB-002",
+        "title": "Migrating an existing application to CloudServe",
+        "text": "# Migrating an existing application to CloudServe\n\n**Applies to:** All plans",
+        "score": 0.2077
+      },
+      {
+        "passage_id": "DOC-ONB-002#p1",
+        "doc_id": "DOC-ONB-002",
+        "title": "Migrating an existing application to CloudServe",
+        "text": "## Symptoms\n\n- An existing application needs moving with minimal downtime\n- The application depends on services not yet available",
+        "score": 0.1425
+      },
+      {
+        "passage_id": "DOC-ONB-002#p2",
+        "doc_id": "DOC-ONB-002",
+        "title": "Migrating an existing application to CloudServe",
+        "text": "## Common causes\n\n- Configuration is embedded in the application rather than externalised\n- The application depends on local state that will not survive scaling",
+        "score": 0.1422
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0023: Migrating our app across We have just signed up and I am not sure where to start. We have a containerised application and would like to get it deployed.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.001382,
+    "response_time_minutes": 2.3033333333333332e-05,
+    "input_index": 22
+  },
+  {
+    "ticket_id": "VAL-0024",
+    "channel": "chat",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "api_key_issue",
+      "urgency": "medium",
+      "confidence": 0.4242,
+      "alternatives": [
+        {
+          "intent": "account_access",
+          "confidence": 0.0354
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0322
+        },
+        {
+          "intent": "sso_configuration",
+          "confidence": 0.0308
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-AUTH-004#p3",
+        "doc_id": "DOC-AUTH-004",
+        "title": "API key rotation and scope management",
+        "text": "## Resolution\n\n1. Check the API keys page for the key's status and expiry. Revoked and expired keys are listed with the date and the user who acted.\n2. Review the scopes attached to the key. Read-only keys cannot write, and project-scoped keys cannot reach organisation endpoints.\n3. To rotate without downtime, create the replacement key first, deploy it, confirm traffic has moved, then revoke the old key.\n4. If a key has been exposed publicly, revoke it immediately rather than waiting for the rotation window.",
+        "score": 0.1671
+      },
+      {
+        "passage_id": "DOC-AUTH-004#p1",
+        "doc_id": "DOC-AUTH-004",
+        "title": "API key rotation and scope management",
+        "text": "## Symptoms\n\n- A previously working key returns 401 Unauthorized\n- A key works for some endpoints and not others\n- A key needs replacing after accidental exposure",
+        "score": 0.1392
+      }
+    ],
+    "answer": "According to our support documentation: 1. Check the API keys page for the key's status and expiry. Revoked and expired keys are listed with the date and the user who acted. [DOC-AUTH-004#p3]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001537,
+    "response_time_minutes": 2.5616666666666665e-05,
+    "input_index": 23
+  },
+  {
+    "ticket_id": "VAL-0025",
+    "channel": "chat",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "deployment_failure",
+      "urgency": "high",
+      "confidence": 0.4504,
+      "alternatives": [
+        {
+          "intent": "onboarding",
+          "confidence": 0.0341
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0331
+        },
+        {
+          "intent": "data_export",
+          "confidence": 0.031
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-DEPLOY-001#p4",
+        "doc_id": "DOC-DEPLOY-001",
+        "title": "Container deployments failing during the health check phase",
+        "text": "## Notes\n\nA health check must return within the timeout using only local state. Endpoints that call a database will fail during a database incident and take the service down with them.",
+        "score": 0.2689
+      },
+      {
+        "passage_id": "DOC-DEPLOY-001#p1",
+        "doc_id": "DOC-DEPLOY-001",
+        "title": "Container deployments failing during the health check phase",
+        "text": "## Symptoms\n\n- The deployment reaches running and then rolls back\n- Logs show repeated health check timeouts\n- The service works locally but not when deployed",
+        "score": 0.2469
+      },
+      {
+        "passage_id": "DOC-DEPLOY-001#p0",
+        "doc_id": "DOC-DEPLOY-001",
+        "title": "Container deployments failing during the health check phase",
+        "text": "# Container deployments failing during the health check phase\n\n**Applies to:** Container Service",
+        "score": 0.2458
+      }
+    ],
+    "answer": "According to our support documentation: A health check must return within the timeout using only local state. Endpoints that call a database will fail during a database incident and take the service down with them. [DOC-DEPLOY-001#p4]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001842,
+    "response_time_minutes": 3.07e-05,
+    "input_index": 24
+  },
+  {
+    "ticket_id": "VAL-0026",
+    "channel": "email",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Sensitive intent requires human handling",
+    "classification": {
+      "intent": "data_residency",
+      "urgency": "medium",
+      "confidence": 0.5931,
+      "alternatives": [
+        {
+          "intent": "database_issue",
+          "confidence": 0.0239
+        },
+        {
+          "intent": "onboarding",
+          "confidence": 0.023
+        },
+        {
+          "intent": "compliance_request",
+          "confidence": 0.0214
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-DATA-003#p1",
+        "doc_id": "DOC-DATA-003",
+        "title": "Data residency and regional storage",
+        "text": "## Symptoms\n\n- A customer requires data to remain in a specific region\n- Latency is high for users far from the primary region\n- A compliance review has asked where data is held",
+        "score": 0.2545
+      },
+      {
+        "passage_id": "DOC-DATA-003#p2",
+        "doc_id": "DOC-DATA-003",
+        "title": "Data residency and regional storage",
+        "text": "## Common causes\n\n- The organisation was created in a region that no longer suits the requirement\n- Read traffic is being served from the primary region only\n- Backups are replicated to a second region by default",
+        "score": 0.2439
+      },
+      {
+        "passage_id": "DOC-DATA-003#p4",
+        "doc_id": "DOC-DATA-003",
+        "title": "Data residency and regional storage",
+        "text": "## Notes\n\nMetadata such as account names and billing records is stored centrally regardless of the data region.",
+        "score": 0.1306
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0026: Need data to stay in the EU we need our data to remain within EU for contract we are signing. Our organisation created some time ago and i not sure which region it is in. please do the needful.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.002408,
+    "response_time_minutes": 4.013333333333333e-05,
+    "input_index": 25
+  },
+  {
+    "ticket_id": "VAL-0027",
+    "channel": "email",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "quota_or_overage",
+      "urgency": "high",
+      "confidence": 0.4768,
+      "alternatives": [
+        {
+          "intent": "billing_query",
+          "confidence": 0.0391
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0303
+        },
+        {
+          "intent": "security_incident",
+          "confidence": 0.0271
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-BILL-003#p2",
+        "doc_id": "DOC-BILL-003",
+        "title": "Usage limits, overage and spend controls",
+        "text": "## Common causes\n\n- Plan allowance was consumed before the end of the period\n- A spend cap was configured and reached\n- Overage protection is disabled, so usage continued beyond the allowance",
+        "score": 0.3216
+      },
+      {
+        "passage_id": "DOC-BILL-003#p1",
+        "doc_id": "DOC-BILL-003",
+        "title": "Usage limits, overage and spend controls",
+        "text": "## Symptoms\n\n- Service was throttled after a traffic increase\n- Overage charges appeared unexpectedly\n- A spend cap stopped a production workload",
+        "score": 0.3187
+      },
+      {
+        "passage_id": "DOC-BILL-001#p2",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "## Common causes\n\n- Usage-based charges accrued beyond the plan allowance\n- A resource was left running in a non-production environment\n- The billing period runs from the subscription date rather than the first of the month",
+        "score": 0.1763
+      }
+    ],
+    "answer": "According to our support documentation: - Plan allowance was consumed before the end of the period [DOC-BILL-003#p2]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.003006,
+    "response_time_minutes": 5.01e-05,
+    "input_index": 26
+  },
+  {
+    "ticket_id": "VAL-0028",
+    "channel": "email",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "deployment_failure",
+      "urgency": "high",
+      "confidence": 0.4177,
+      "alternatives": [
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0409
+        },
+        {
+          "intent": "performance_degradation",
+          "confidence": 0.0336
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0317
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-DEPLOY-003#p1",
+        "doc_id": "DOC-DEPLOY-003",
+        "title": "Build failures caused by dependency resolution",
+        "text": "## Symptoms\n\n- Builds that previously succeeded now fail without code changes\n- The build works locally but fails in the pipeline\n- Dependency resolution takes far longer than usual",
+        "score": 0.3155
+      },
+      {
+        "passage_id": "DOC-DEPLOY-003#p0",
+        "doc_id": "DOC-DEPLOY-003",
+        "title": "Build failures caused by dependency resolution",
+        "text": "# Build failures caused by dependency resolution\n\n**Applies to:** Build Service",
+        "score": 0.2131
+      },
+      {
+        "passage_id": "DOC-DEPLOY-003#p4",
+        "doc_id": "DOC-DEPLOY-003",
+        "title": "Build failures caused by dependency resolution",
+        "text": "## Notes\n\nBuild logs retain the full resolution output for thirty days, which is usually enough to identify which version changed.",
+        "score": 0.1243
+      }
+    ],
+    "answer": "According to our support documentation: - Builds that previously succeeded now fail without code changes [DOC-DEPLOY-003#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.002144,
+    "response_time_minutes": 3.573333333333333e-05,
+    "input_index": 27
+  },
+  {
+    "ticket_id": "VAL-0029",
+    "channel": "chat",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "onboarding",
+      "urgency": "low",
+      "confidence": 0.5107,
+      "alternatives": [
+        {
+          "intent": "billing_query",
+          "confidence": 0.0323
+        },
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0323
+        },
+        {
+          "intent": "data_residency",
+          "confidence": 0.0315
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-DATA-002#p1",
+        "doc_id": "DOC-DATA-002",
+        "title": "Backups, retention and point-in-time restore",
+        "text": "## Symptoms\n\n- Data was deleted and needs recovering\n- A restore is taking longer than expected\n- A backup is older than expected",
+        "score": 0.1373
+      },
+      {
+        "passage_id": "DOC-INT-002#p1",
+        "doc_id": "DOC-INT-002",
+        "title": "Third party monitoring and log forwarding",
+        "text": "## Symptoms\n\n- Logs are not arriving at the external destination\n- Metrics are delayed compared with the console\n- Forwarded volume is higher than expected",
+        "score": 0.1139
+      }
+    ],
+    "answer": "According to our support documentation: - Data was deleted and needs recovering [DOC-DATA-002#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.0019,
+    "response_time_minutes": 3.1666666666666666e-05,
+    "input_index": 28
+  },
+  {
+    "ticket_id": "VAL-0030",
+    "channel": "email",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Explicit safety restriction on supplied ticket",
+    "classification": {
+      "intent": "feature_request",
+      "urgency": "low",
+      "confidence": 0.4043,
+      "alternatives": [
+        {
+          "intent": "onboarding",
+          "confidence": 0.0351
+        },
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0337
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0325
+        }
+      ]
+    },
+    "sources": [],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0030: Feature request: staged rollouts Are staged rollouts on the roadmap? We would like to move traffic gradually rather than all at once.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.001901,
+    "response_time_minutes": 3.168333333333333e-05,
+    "input_index": 29
+  },
+  {
+    "ticket_id": "VAL-0031",
+    "channel": "email",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Sensitive intent requires human handling",
+    "classification": {
+      "intent": "rollback_request",
+      "urgency": "high",
+      "confidence": 0.6394,
+      "alternatives": [
+        {
+          "intent": "data_residency",
+          "confidence": 0.0215
+        },
+        {
+          "intent": "security_incident",
+          "confidence": 0.0197
+        },
+        {
+          "intent": "compliance_request",
+          "confidence": 0.0193
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-DEPLOY-002#p1",
+        "doc_id": "DOC-DEPLOY-002",
+        "title": "Rolling back a failed release",
+        "text": "## Symptoms\n\n- A release has introduced errors and must be reverted\n- The previous revision is needed while a fix is prepared",
+        "score": 0.2314
+      },
+      {
+        "passage_id": "DOC-DEPLOY-002#p0",
+        "doc_id": "DOC-DEPLOY-002",
+        "title": "Rolling back a failed release",
+        "text": "# Rolling back a failed release\n\n**Applies to:** Container Service, Functions",
+        "score": 0.182
+      },
+      {
+        "passage_id": "DOC-DEPLOY-002#p2",
+        "doc_id": "DOC-DEPLOY-002",
+        "title": "Rolling back a failed release",
+        "text": "## Common causes\n\n- A defect reached production that testing did not catch\n- A configuration change had unintended effects",
+        "score": 0.1392
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0031: Bad release in production We shipped a release yesterday morning that has broken checkout for a portion of our customers. We need to get back to the previous version quickly. What is the fastest safe route?",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.001642,
+    "response_time_minutes": 2.7366666666666667e-05,
+    "input_index": 30
+  },
+  {
+    "ticket_id": "VAL-0032",
+    "channel": "chat",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Explicit safety restriction on supplied ticket",
+    "classification": {
+      "intent": "feature_request",
+      "urgency": "medium",
+      "confidence": 0.5586,
+      "alternatives": [
+        {
+          "intent": "account_access",
+          "confidence": 0.0253
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0243
+        },
+        {
+          "intent": "configuration_help",
+          "confidence": 0.0234
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-BILL-003#p4",
+        "doc_id": "DOC-BILL-003",
+        "title": "Usage limits, overage and spend controls",
+        "text": "## Notes\n\nSpend caps apply per organisation and cannot currently be set per project.",
+        "score": 0.435
+      },
+      {
+        "passage_id": "DOC-ACCT-002#p0",
+        "doc_id": "DOC-ACCT-002",
+        "title": "Organisation setup and project structure",
+        "text": "# Organisation setup and project structure\n\n**Applies to:** All plans",
+        "score": 0.1526
+      },
+      {
+        "passage_id": "DOC-ACCT-002#p2",
+        "doc_id": "DOC-ACCT-002",
+        "title": "Organisation setup and project structure",
+        "text": "## Common causes\n\n- Environments were created as folders within one project rather than as separate projects\n- Configuration was set at organisation scope and inherited everywhere\n- Projects cannot move between organisations without a migration",
+        "score": 0.1382
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0032:  It would be very useful to set spend caps per project rather than only for the whole organisation. At the moment one team's overspend affects everyone.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.001461,
+    "response_time_minutes": 2.4350000000000002e-05,
+    "input_index": 31
+  },
+  {
+    "ticket_id": "VAL-0033",
+    "channel": "forum",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "webhook_issue",
+      "urgency": "low",
+      "confidence": 0.4875,
+      "alternatives": [
+        {
+          "intent": "database_issue",
+          "confidence": 0.0304
+        },
+        {
+          "intent": "deployment_failure",
+          "confidence": 0.03
+        },
+        {
+          "intent": "sso_configuration",
+          "confidence": 0.028
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-API-003#p1",
+        "doc_id": "DOC-API-003",
+        "title": "Webhook delivery, retries and signature verification",
+        "text": "## Symptoms\n\n- Webhooks are not arriving at the configured endpoint\n- The same event is delivered more than once\n- Signature verification fails",
+        "score": 0.4238
+      },
+      {
+        "passage_id": "DOC-API-003#p0",
+        "doc_id": "DOC-API-003",
+        "title": "Webhook delivery, retries and signature verification",
+        "text": "# Webhook delivery, retries and signature verification\n\n**Applies to:** All plans",
+        "score": 0.4132
+      },
+      {
+        "passage_id": "DOC-API-003#p2",
+        "doc_id": "DOC-API-003",
+        "title": "Webhook delivery, retries and signature verification",
+        "text": "## Common causes\n\n- The endpoint returned a non-2xx status and delivery is being retried\n- The endpoint responded too slowly and the delivery timed out\n- The signature was computed over a parsed body rather than the raw bytes",
+        "score": 0.3678
+      }
+    ],
+    "answer": "According to our support documentation: - Webhooks are not arriving at the configured endpoint [DOC-API-003#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001513,
+    "response_time_minutes": 2.521666666666667e-05,
+    "input_index": 32
+  },
+  {
+    "ticket_id": "VAL-0034",
+    "channel": "email",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Sensitive intent requires human handling",
+    "classification": {
+      "intent": "rollback_request",
+      "urgency": "high",
+      "confidence": 0.7497,
+      "alternatives": [
+        {
+          "intent": "database_issue",
+          "confidence": 0.0146
+        },
+        {
+          "intent": "quota_or_overage",
+          "confidence": 0.0142
+        },
+        {
+          "intent": "deployment_failure",
+          "confidence": 0.013
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-DEPLOY-002#p1",
+        "doc_id": "DOC-DEPLOY-002",
+        "title": "Rolling back a failed release",
+        "text": "## Symptoms\n\n- A release has introduced errors and must be reverted\n- The previous revision is needed while a fix is prepared",
+        "score": 0.3045
+      },
+      {
+        "passage_id": "DOC-DEPLOY-002#p3",
+        "doc_id": "DOC-DEPLOY-002",
+        "title": "Rolling back a failed release",
+        "text": "## Resolution\n\n1. Open the revisions page for the service and identify the last revision that was healthy.\n2. Select roll back on that revision. Traffic moves within roughly thirty seconds and no rebuild takes place.\n3. If the release included a database migration, roll the migration back before the service, or the older code will encounter a schema it does not expect.\n4. Record the incident and the reason for the rollback before deploying a fix, while the detail is still fresh.",
+        "score": 0.2877
+      },
+      {
+        "passage_id": "DOC-DEPLOY-002#p0",
+        "doc_id": "DOC-DEPLOY-002",
+        "title": "Rolling back a failed release",
+        "text": "# Rolling back a failed release\n\n**Applies to:** Container Service, Functions",
+        "score": 0.1581
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0034: Need to roll back the latest release How do I revert to an earlier revision? The release we put out this morning is causing errors and I would rather roll back than try to fix forward.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.001369,
+    "response_time_minutes": 2.2816666666666668e-05,
+    "input_index": 33
+  },
+  {
+    "ticket_id": "VAL-0035",
+    "channel": "chat",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Explicit safety restriction on supplied ticket",
+    "classification": {
+      "intent": "unclear_request",
+      "urgency": "medium",
+      "confidence": 0.2398,
+      "alternatives": [
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.048
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0446
+        },
+        {
+          "intent": "data_residency",
+          "confidence": 0.0428
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-AUTH-004#p1",
+        "doc_id": "DOC-AUTH-004",
+        "title": "API key rotation and scope management",
+        "text": "## Symptoms\n\n- A previously working key returns 401 Unauthorized\n- A key works for some endpoints and not others\n- A key needs replacing after accidental exposure",
+        "score": 0.1122
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0035:  It is not working. Please help.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.00125,
+    "response_time_minutes": 2.0833333333333333e-05,
+    "input_index": 34
+  },
+  {
+    "ticket_id": "VAL-0036",
+    "channel": "forum",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "onboarding",
+      "urgency": "low",
+      "confidence": 0.5726,
+      "alternatives": [
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0283
+        },
+        {
+          "intent": "data_residency",
+          "confidence": 0.0265
+        },
+        {
+          "intent": "billing_query",
+          "confidence": 0.0261
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-DATA-002#p1",
+        "doc_id": "DOC-DATA-002",
+        "title": "Backups, retention and point-in-time restore",
+        "text": "## Symptoms\n\n- Data was deleted and needs recovering\n- A restore is taking longer than expected\n- A backup is older than expected",
+        "score": 0.1192
+      },
+      {
+        "passage_id": "DOC-ONB-001#p0",
+        "doc_id": "DOC-ONB-001",
+        "title": "First deployment: a walkthrough",
+        "text": "# First deployment: a walkthrough\n\n**Applies to:** All plans",
+        "score": 0.1149
+      }
+    ],
+    "answer": "According to our support documentation: - Data was deleted and needs recovering [DOC-DATA-002#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001378,
+    "response_time_minutes": 2.2966666666666668e-05,
+    "input_index": 35
+  },
+  {
+    "ticket_id": "VAL-0037",
+    "channel": "email",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Sensitive intent requires human handling",
+    "classification": {
+      "intent": "data_residency",
+      "urgency": "medium",
+      "confidence": 0.4856,
+      "alternatives": [
+        {
+          "intent": "database_issue",
+          "confidence": 0.0305
+        },
+        {
+          "intent": "compliance_request",
+          "confidence": 0.0301
+        },
+        {
+          "intent": "billing_query",
+          "confidence": 0.0296
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-DATA-003#p1",
+        "doc_id": "DOC-DATA-003",
+        "title": "Data residency and regional storage",
+        "text": "## Symptoms\n\n- A customer requires data to remain in a specific region\n- Latency is high for users far from the primary region\n- A compliance review has asked where data is held",
+        "score": 0.2709
+      },
+      {
+        "passage_id": "DOC-DATA-003#p2",
+        "doc_id": "DOC-DATA-003",
+        "title": "Data residency and regional storage",
+        "text": "## Common causes\n\n- The organisation was created in a region that no longer suits the requirement\n- Read traffic is being served from the primary region only\n- Backups are replicated to a second region by default",
+        "score": 0.2641
+      },
+      {
+        "passage_id": "DOC-DATA-003#p3",
+        "doc_id": "DOC-DATA-003",
+        "title": "Data residency and regional storage",
+        "text": "## Resolution\n\n1. Check the region shown on the organisation settings page. This is fixed at creation and determines where primary data is stored.\n2. Enable read replicas in additional regions to reduce latency for distant users without moving primary storage.\n3. Review the backup replication setting if a single-region requirement applies, since cross-region replication is enabled by default.\n4. Migrating an organisation between regions requires a planned migration with support and involves a maintenance window.",
+        "score": 0.1635
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0037: Question about backup regions Are backups replicated outside our primary region? A compliance review has raised this and I need a definite answer.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.00153,
+    "response_time_minutes": 2.55e-05,
+    "input_index": 36
+  },
+  {
+    "ticket_id": "VAL-0038",
+    "channel": "forum",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "performance_degradation",
+      "urgency": "medium",
+      "confidence": 0.468,
+      "alternatives": [
+        {
+          "intent": "database_issue",
+          "confidence": 0.0333
+        },
+        {
+          "intent": "sso_configuration",
+          "confidence": 0.0313
+        },
+        {
+          "intent": "webhook_issue",
+          "confidence": 0.0296
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-PERF-001#p1",
+        "doc_id": "DOC-PERF-001",
+        "title": "Diagnosing elevated response latency",
+        "text": "## Symptoms\n\n- Response times have increased without a code change\n- The 95th percentile is far above the median\n- Latency rises at predictable times of day",
+        "score": 0.4527
+      },
+      {
+        "passage_id": "DOC-PERF-001#p4",
+        "doc_id": "DOC-PERF-001",
+        "title": "Diagnosing elevated response latency",
+        "text": "## Notes\n\nCold starts affect the first request to a new instance. Frequent scaling events will therefore raise the 95th percentile even when the service itself is healthy.",
+        "score": 0.1724
+      },
+      {
+        "passage_id": "DOC-DATA-003#p1",
+        "doc_id": "DOC-DATA-003",
+        "title": "Data residency and regional storage",
+        "text": "## Symptoms\n\n- A customer requires data to remain in a specific region\n- Latency is high for users far from the primary region\n- A compliance review has asked where data is held",
+        "score": 0.1462
+      }
+    ],
+    "answer": "According to our support documentation: - Response times have increased without a code change [DOC-PERF-001#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001403,
+    "response_time_minutes": 2.3383333333333334e-05,
+    "input_index": 37
+  },
+  {
+    "ticket_id": "VAL-0039",
+    "channel": "forum",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "api_key_issue",
+      "urgency": "medium",
+      "confidence": 0.4851,
+      "alternatives": [
+        {
+          "intent": "security_incident",
+          "confidence": 0.036
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0286
+        },
+        {
+          "intent": "data_residency",
+          "confidence": 0.0277
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-SEC-001#p2",
+        "doc_id": "DOC-SEC-001",
+        "title": "Responding to a suspected account compromise",
+        "text": "## Common causes\n\n- Credentials were reused from a service that suffered a breach\n- An API key was committed to a public repository\n- A former team member retained access after leaving",
+        "score": 0.2787
+      },
+      {
+        "passage_id": "DOC-AUTH-004#p0",
+        "doc_id": "DOC-AUTH-004",
+        "title": "API key rotation and scope management",
+        "text": "# API key rotation and scope management\n\n**Applies to:** All plans",
+        "score": 0.2404
+      },
+      {
+        "passage_id": "DOC-AUTH-004#p1",
+        "doc_id": "DOC-AUTH-004",
+        "title": "API key rotation and scope management",
+        "text": "## Symptoms\n\n- A previously working key returns 401 Unauthorized\n- A key works for some endpoints and not others\n- A key needs replacing after accidental exposure",
+        "score": 0.2268
+      }
+    ],
+    "answer": "According to our support documentation: - Credentials were reused from a service that suffered a breach [DOC-SEC-001#p2]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001418,
+    "response_time_minutes": 2.3633333333333333e-05,
+    "input_index": 38
+  },
+  {
+    "ticket_id": "VAL-0040",
+    "channel": "email",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "billing_query",
+      "urgency": "low",
+      "confidence": 0.6552,
+      "alternatives": [
+        {
+          "intent": "quota_or_overage",
+          "confidence": 0.0197
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0196
+        },
+        {
+          "intent": "data_residency",
+          "confidence": 0.0195
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-BILL-001#p1",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "## Symptoms\n\n- The invoice is higher than expected\n- Charges appear for a service that is not in use\n- The billing period does not align with the calendar month",
+        "score": 0.3202
+      },
+      {
+        "passage_id": "DOC-BILL-001#p2",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "## Common causes\n\n- Usage-based charges accrued beyond the plan allowance\n- A resource was left running in a non-production environment\n- The billing period runs from the subscription date rather than the first of the month",
+        "score": 0.1898
+      },
+      {
+        "passage_id": "DOC-BILL-001#p3",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "## Resolution\n\n1. Open the usage breakdown for the period, which itemises charges by service and by environment.\n2. Look for resources in staging or development environments, which are billed at the same rate as production.\n3. Check the billing period dates at the top of the invoice. The period runs from the anniversary of the subscription date.\n4. Set a usage alert on the billing page so that unexpected accrual is noticed during the period rather than at the end of it.",
+        "score": 0.125
+      }
+    ],
+    "answer": "According to our support documentation: - The invoice is higher than expected [DOC-BILL-001#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001331,
+    "response_time_minutes": 2.218333333333333e-05,
+    "input_index": 39
+  },
+  {
+    "ticket_id": "VAL-0041",
+    "channel": "email",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "billing_query",
+      "urgency": "low",
+      "confidence": 0.6552,
+      "alternatives": [
+        {
+          "intent": "quota_or_overage",
+          "confidence": 0.0197
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0196
+        },
+        {
+          "intent": "data_residency",
+          "confidence": 0.0195
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-BILL-001#p1",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "## Symptoms\n\n- The invoice is higher than expected\n- Charges appear for a service that is not in use\n- The billing period does not align with the calendar month",
+        "score": 0.3202
+      },
+      {
+        "passage_id": "DOC-BILL-001#p2",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "## Common causes\n\n- Usage-based charges accrued beyond the plan allowance\n- A resource was left running in a non-production environment\n- The billing period runs from the subscription date rather than the first of the month",
+        "score": 0.1898
+      },
+      {
+        "passage_id": "DOC-BILL-001#p3",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "## Resolution\n\n1. Open the usage breakdown for the period, which itemises charges by service and by environment.\n2. Look for resources in staging or development environments, which are billed at the same rate as production.\n3. Check the billing period dates at the top of the invoice. The period runs from the anniversary of the subscription date.\n4. Set a usage alert on the billing page so that unexpected accrual is noticed during the period rather than at the end of it.",
+        "score": 0.125
+      }
+    ],
+    "answer": "According to our support documentation: - The invoice is higher than expected [DOC-BILL-001#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001329,
+    "response_time_minutes": 2.2150000000000003e-05,
+    "input_index": 40
+  },
+  {
+    "ticket_id": "VAL-0042",
+    "channel": "chat",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "configuration_help",
+      "urgency": "medium",
+      "confidence": 0.4474,
+      "alternatives": [
+        {
+          "intent": "database_issue",
+          "confidence": 0.0356
+        },
+        {
+          "intent": "webhook_issue",
+          "confidence": 0.0323
+        },
+        {
+          "intent": "data_export",
+          "confidence": 0.03
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-ACCT-002#p3",
+        "doc_id": "DOC-ACCT-002",
+        "title": "Organisation setup and project structure",
+        "text": "## Resolution\n\n1. Use a separate project per environment where isolation of configuration and billing matters. Folders within a project share configuration by design.\n2. Set shared values at organisation scope and override at project scope, rather than repeating values in every project.\n3. Plan project structure around who should be able to see what, since permissions are granted at project scope most naturally.\n4. Contact support for a project migration between organisations, which requires a short maintenance window.",
+        "score": 0.1836
+      },
+      {
+        "passage_id": "DOC-DEPLOY-004#p2",
+        "doc_id": "DOC-DEPLOY-004",
+        "title": "Configuring environment variables and secrets",
+        "text": "## Common causes\n\n- The variable was set at project scope but read at service scope\n- The application logs its configuration at startup\n- An environment override exists that is not visible on the main settings page",
+        "score": 0.1568
+      },
+      {
+        "passage_id": "DOC-DEPLOY-004#p3",
+        "doc_id": "DOC-DEPLOY-004",
+        "title": "Configuring environment variables and secrets",
+        "text": "## Resolution\n\n1. Check the scope at which the variable was defined. Service scope overrides project scope, and project scope overrides organisation defaults.\n2. Store anything sensitive as a secret rather than a variable. Secrets are masked in logs and are not readable through the API after creation.\n3. Review the environment overrides page, which lists values that differ from the defaults for each environment.\n4. Redeploy after changing configuration. Running containers do not pick up new values without a restart.",
+        "score": 0.1408
+      }
+    ],
+    "answer": "According to our support documentation: 1. Use a separate project per environment where isolation of configuration and billing matters. Folders within a project share configuration by design. [DOC-ACCT-002#p3]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001401,
+    "response_time_minutes": 2.335e-05,
+    "input_index": 41
+  },
+  {
+    "ticket_id": "VAL-0043",
+    "channel": "forum",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Explicit safety restriction on supplied ticket",
+    "classification": {
+      "intent": "security_incident",
+      "urgency": "high",
+      "confidence": 0.6887,
+      "alternatives": [
+        {
+          "intent": "account_access",
+          "confidence": 0.0181
+        },
+        {
+          "intent": "api_key_issue",
+          "confidence": 0.0178
+        },
+        {
+          "intent": "compliance_request",
+          "confidence": 0.0171
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-SEC-001#p1",
+        "doc_id": "DOC-SEC-001",
+        "title": "Responding to a suspected account compromise",
+        "text": "## Symptoms\n\n- Unrecognised activity appears in the audit log\n- A user reports credentials may have been exposed\n- Resources were created that nobody claims",
+        "score": 0.381
+      },
+      {
+        "passage_id": "DOC-SEC-003#p4",
+        "doc_id": "DOC-SEC-003",
+        "title": "Audit logging and compliance evidence",
+        "text": "## Notes\n\nAudit log exports are themselves audited, including the fields selected and the destination.",
+        "score": 0.1671
+      },
+      {
+        "passage_id": "DOC-SEC-001#p2",
+        "doc_id": "DOC-SEC-001",
+        "title": "Responding to a suspected account compromise",
+        "text": "## Common causes\n\n- Credentials were reused from a service that suffered a breach\n- An API key was committed to a public repository\n- A former team member retained access after leaving",
+        "score": 0.1388
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0043: Suspicious activity in audit log One of our engineers believes their credentials may have been exposed in a breach at another service. What should we be doing right now?",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.001296,
+    "response_time_minutes": 2.16e-05,
+    "input_index": 42
+  },
+  {
+    "ticket_id": "VAL-0044",
+    "channel": "chat",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "billing_query",
+      "urgency": "low",
+      "confidence": 0.5749,
+      "alternatives": [
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0238
+        },
+        {
+          "intent": "compliance_request",
+          "confidence": 0.0238
+        },
+        {
+          "intent": "quota_or_overage",
+          "confidence": 0.0235
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-BILL-001#p1",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "## Symptoms\n\n- The invoice is higher than expected\n- Charges appear for a service that is not in use\n- The billing period does not align with the calendar month",
+        "score": 0.3291
+      },
+      {
+        "passage_id": "DOC-BILL-001#p0",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "# Understanding your invoice and usage breakdown\n\n**Applies to:** All plans",
+        "score": 0.1735
+      },
+      {
+        "passage_id": "DOC-BILL-001#p3",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "## Resolution\n\n1. Open the usage breakdown for the period, which itemises charges by service and by environment.\n2. Look for resources in staging or development environments, which are billed at the same rate as production.\n3. Check the billing period dates at the top of the invoice. The period runs from the anniversary of the subscription date.\n4. Set a usage alert on the billing page so that unexpected accrual is noticed during the period rather than at the end of it.",
+        "score": 0.159
+      }
+    ],
+    "answer": "According to our support documentation: - The invoice is higher than expected [DOC-BILL-001#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.004411,
+    "response_time_minutes": 7.351666666666666e-05,
+    "input_index": 43
+  },
+  {
+    "ticket_id": "VAL-0045",
+    "channel": "email",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "data_export",
+      "urgency": "medium",
+      "confidence": 0.6087,
+      "alternatives": [
+        {
+          "intent": "database_issue",
+          "confidence": 0.0264
+        },
+        {
+          "intent": "account_access",
+          "confidence": 0.0215
+        },
+        {
+          "intent": "compliance_request",
+          "confidence": 0.0214
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-DATA-001#p1",
+        "doc_id": "DOC-DATA-001",
+        "title": "Exporting account data and scheduled extracts",
+        "text": "## Symptoms\n\n- An export has not completed\n- The download link has expired\n- The export is missing recent records",
+        "score": 0.4326
+      },
+      {
+        "passage_id": "DOC-DATA-001#p3",
+        "doc_id": "DOC-DATA-001",
+        "title": "Exporting account data and scheduled extracts",
+        "text": "## Resolution\n\n1. Check the exports page for job status. Jobs covering more than a million records commonly take several minutes.\n2. Request a fresh link from the exports page if the original has expired. The underlying file is retained for seven days.\n3. Note that the export reflects the moment the job began, so records created during processing are not included.\n4. For recurring needs, configure a scheduled export delivered to object storage rather than generating them manually.",
+        "score": 0.1562
+      },
+      {
+        "passage_id": "DOC-DATA-001#p2",
+        "doc_id": "DOC-DATA-001",
+        "title": "Exporting account data and scheduled extracts",
+        "text": "## Common causes\n\n- Large exports are queued and processed asynchronously\n- Download links are valid for twenty-four hours\n- The export captured a snapshot taken when the job started",
+        "score": 0.1387
+      }
+    ],
+    "answer": "According to our support documentation: - The download link has expired [DOC-DATA-001#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001628,
+    "response_time_minutes": 2.7133333333333337e-05,
+    "input_index": 44
+  },
+  {
+    "ticket_id": "VAL-0046",
+    "channel": "email",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Low classification confidence",
+    "classification": {
+      "intent": "api_usage_question",
+      "urgency": "medium",
+      "confidence": 0.2003,
+      "alternatives": [
+        {
+          "intent": "data_export",
+          "confidence": 0.0522
+        },
+        {
+          "intent": "sso_configuration",
+          "confidence": 0.0503
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0492
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-API-002#p1",
+        "doc_id": "DOC-API-002",
+        "title": "Pagination and handling large result sets",
+        "text": "## Symptoms\n\n- Only the first page of results is returned\n- Iterating through results misses or duplicates records\n- Large queries time out",
+        "score": 0.2912
+      },
+      {
+        "passage_id": "DOC-API-002#p0",
+        "doc_id": "DOC-API-002",
+        "title": "Pagination and handling large result sets",
+        "text": "# Pagination and handling large result sets\n\n**Applies to:** All plans",
+        "score": 0.176
+      },
+      {
+        "passage_id": "DOC-API-002#p2",
+        "doc_id": "DOC-API-002",
+        "title": "Pagination and handling large result sets",
+        "text": "## Common causes\n\n- The cursor from the previous response was not passed to the next request\n- Offset pagination was used against a changing collection\n- The page size requested exceeds the maximum",
+        "score": 0.1282
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0046: How do I page through large results when i do pagination some record coming two time and some missing. what is correct way?",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.001597,
+    "response_time_minutes": 2.6616666666666665e-05,
+    "input_index": 45
+  },
+  {
+    "ticket_id": "VAL-0047",
+    "channel": "chat",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Low classification confidence",
+    "classification": {
+      "intent": "rate_limit",
+      "urgency": "medium",
+      "confidence": 0.1451,
+      "alternatives": [
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0506
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0498
+        },
+        {
+          "intent": "performance_degradation",
+          "confidence": 0.0471
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-API-001#p3",
+        "doc_id": "DOC-API-001",
+        "title": "Understanding API rate limits and quota tiers",
+        "text": "## Resolution\n\n1. Read the rate limit headers returned with every response. They give the limit, the remaining allowance and the reset time, which is more reliable than inferring the limit from behaviour.\n2. Confirm whether the endpoint has a specific limit. Search and export endpoints are more expensive and are limited more tightly than reads.\n3. Implement exponential backoff with jitter on 429 responses rather than retrying immediately, which prolongs the throttling.\n4. Where sustained higher throughput is genuinely required, the limit can be raised on Business and Enterprise plans through an account request.",
+        "score": 0.1354
+      },
+      {
+        "passage_id": "DOC-DATA-003#p2",
+        "doc_id": "DOC-DATA-003",
+        "title": "Data residency and regional storage",
+        "text": "## Common causes\n\n- The organisation was created in a region that no longer suits the requirement\n- Read traffic is being served from the primary region only\n- Backups are replicated to a second region by default",
+        "score": 0.1241
+      },
+      {
+        "passage_id": "DOC-INT-002#p2",
+        "doc_id": "DOC-INT-002",
+        "title": "Third party monitoring and log forwarding",
+        "text": "## Common causes\n\n- The destination rejected the payload and forwarding paused\n- Aggregation introduces a delay before metrics are forwarded\n- Debug-level logs are being forwarded along with the rest",
+        "score": 0.107
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0047:  Are the search endpoints limited differently from the rest? Our read traffic is fine but search is being rejected constantly.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.001616,
+    "response_time_minutes": 2.6933333333333335e-05,
+    "input_index": 46
+  },
+  {
+    "ticket_id": "VAL-0048",
+    "channel": "chat",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Explicit safety restriction on supplied ticket",
+    "classification": {
+      "intent": "security_incident",
+      "urgency": "high",
+      "confidence": 0.5617,
+      "alternatives": [
+        {
+          "intent": "onboarding",
+          "confidence": 0.025
+        },
+        {
+          "intent": "account_access",
+          "confidence": 0.0244
+        },
+        {
+          "intent": "performance_degradation",
+          "confidence": 0.0244
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-SEC-001#p1",
+        "doc_id": "DOC-SEC-001",
+        "title": "Responding to a suspected account compromise",
+        "text": "## Symptoms\n\n- Unrecognised activity appears in the audit log\n- A user reports credentials may have been exposed\n- Resources were created that nobody claims",
+        "score": 0.2337
+      },
+      {
+        "passage_id": "DOC-SEC-001#p2",
+        "doc_id": "DOC-SEC-001",
+        "title": "Responding to a suspected account compromise",
+        "text": "## Common causes\n\n- Credentials were reused from a service that suffered a breach\n- An API key was committed to a public repository\n- A former team member retained access after leaving",
+        "score": 0.1822
+      },
+      {
+        "passage_id": "DOC-SEC-002#p0",
+        "doc_id": "DOC-SEC-002",
+        "title": "Handling exposed secrets and credential rotation",
+        "text": "# Handling exposed secrets and credential rotation\n\n**Applies to:** All plans",
+        "score": 0.116
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0048:  one of our engineers believes their credentials may have been exposed in breach at another service. What should we be doing right now? please tell what to do.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.002148,
+    "response_time_minutes": 3.58e-05,
+    "input_index": 47
+  },
+  {
+    "ticket_id": "VAL-0049",
+    "channel": "email",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "api_key_issue",
+      "urgency": "medium",
+      "confidence": 0.4058,
+      "alternatives": [
+        {
+          "intent": "unclear_request",
+          "confidence": 0.0356
+        },
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0346
+        },
+        {
+          "intent": "account_access",
+          "confidence": 0.0335
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-AUTH-004#p3",
+        "doc_id": "DOC-AUTH-004",
+        "title": "API key rotation and scope management",
+        "text": "## Resolution\n\n1. Check the API keys page for the key's status and expiry. Revoked and expired keys are listed with the date and the user who acted.\n2. Review the scopes attached to the key. Read-only keys cannot write, and project-scoped keys cannot reach organisation endpoints.\n3. To rotate without downtime, create the replacement key first, deploy it, confirm traffic has moved, then revoke the old key.\n4. If a key has been exposed publicly, revoke it immediately rather than waiting for the rotation window.",
+        "score": 0.2285
+      },
+      {
+        "passage_id": "DOC-AUTH-004#p1",
+        "doc_id": "DOC-AUTH-004",
+        "title": "API key rotation and scope management",
+        "text": "## Symptoms\n\n- A previously working key returns 401 Unauthorized\n- A key works for some endpoints and not others\n- A key needs replacing after accidental exposure",
+        "score": 0.1408
+      }
+    ],
+    "answer": "According to our support documentation: 1. Check the API keys page for the key's status and expiry. Revoked and expired keys are listed with the date and the user who acted. [DOC-AUTH-004#p3]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001466,
+    "response_time_minutes": 2.4433333333333335e-05,
+    "input_index": 48
+  },
+  {
+    "ticket_id": "VAL-0050",
+    "channel": "email",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "No safe extractive passage",
+    "classification": {
+      "intent": "onboarding",
+      "urgency": "low",
+      "confidence": 0.5069,
+      "alternatives": [
+        {
+          "intent": "database_issue",
+          "confidence": 0.0312
+        },
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0275
+        },
+        {
+          "intent": "data_residency",
+          "confidence": 0.0272
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-ONB-001#p0",
+        "doc_id": "DOC-ONB-001",
+        "title": "First deployment: a walkthrough",
+        "text": "# First deployment: a walkthrough\n\n**Applies to:** All plans",
+        "score": 0.1183
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0050: Getting started with first deployment We have just signed up and I am not sure where to start. We have a containerised application and would like to get it deployed.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.001414,
+    "response_time_minutes": 2.3566666666666666e-05,
+    "input_index": 49
+  },
+  {
+    "ticket_id": "VAL-0051",
+    "channel": "forum",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "integration_help",
+      "urgency": "low",
+      "confidence": 0.3589,
+      "alternatives": [
+        {
+          "intent": "data_export",
+          "confidence": 0.0384
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0362
+        },
+        {
+          "intent": "sso_configuration",
+          "confidence": 0.0359
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-INT-002#p4",
+        "doc_id": "DOC-INT-002",
+        "title": "Third party monitoring and log forwarding",
+        "text": "## Notes\n\nForwarding pauses after one hour of consecutive failures and must be resumed manually once the destination is healthy.",
+        "score": 0.4013
+      },
+      {
+        "passage_id": "DOC-INT-002#p0",
+        "doc_id": "DOC-INT-002",
+        "title": "Third party monitoring and log forwarding",
+        "text": "# Third party monitoring and log forwarding\n\n**Applies to:** Business and Enterprise plans",
+        "score": 0.3104
+      },
+      {
+        "passage_id": "DOC-INT-002#p1",
+        "doc_id": "DOC-INT-002",
+        "title": "Third party monitoring and log forwarding",
+        "text": "## Symptoms\n\n- Logs are not arriving at the external destination\n- Metrics are delayed compared with the console\n- Forwarded volume is higher than expected",
+        "score": 0.2355
+      }
+    ],
+    "answer": "According to our support documentation: Forwarding pauses after one hour of consecutive failures and must be resumed manually once the destination is healthy. [DOC-INT-002#p4]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001414,
+    "response_time_minutes": 2.3566666666666666e-05,
+    "input_index": 50
+  },
+  {
+    "ticket_id": "VAL-0052",
+    "channel": "chat",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "No sufficiently relevant knowledge passage",
+    "classification": {
+      "intent": "authentication_failure",
+      "urgency": "medium",
+      "confidence": 0.4717,
+      "alternatives": [
+        {
+          "intent": "account_access",
+          "confidence": 0.0304
+        },
+        {
+          "intent": "webhook_issue",
+          "confidence": 0.0304
+        },
+        {
+          "intent": "deployment_failure",
+          "confidence": 0.0303
+        }
+      ]
+    },
+    "sources": [],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0052:  Since late last night I cannot get into the console at all. My colleague on the same team signs in without any trouble, so it does not appear to be a general outage. Could you check whether something is wrong with my account specifically?",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.001355,
+    "response_time_minutes": 2.2583333333333335e-05,
+    "input_index": 51
+  },
+  {
+    "ticket_id": "VAL-0053",
+    "channel": "chat",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "billing_query",
+      "urgency": "low",
+      "confidence": 0.5749,
+      "alternatives": [
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0238
+        },
+        {
+          "intent": "compliance_request",
+          "confidence": 0.0238
+        },
+        {
+          "intent": "quota_or_overage",
+          "confidence": 0.0235
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-BILL-001#p1",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "## Symptoms\n\n- The invoice is higher than expected\n- Charges appear for a service that is not in use\n- The billing period does not align with the calendar month",
+        "score": 0.3291
+      },
+      {
+        "passage_id": "DOC-BILL-001#p0",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "# Understanding your invoice and usage breakdown\n\n**Applies to:** All plans",
+        "score": 0.1735
+      },
+      {
+        "passage_id": "DOC-BILL-001#p3",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "## Resolution\n\n1. Open the usage breakdown for the period, which itemises charges by service and by environment.\n2. Look for resources in staging or development environments, which are billed at the same rate as production.\n3. Check the billing period dates at the top of the invoice. The period runs from the anniversary of the subscription date.\n4. Set a usage alert on the billing page so that unexpected accrual is noticed during the period rather than at the end of it.",
+        "score": 0.159
+      }
+    ],
+    "answer": "According to our support documentation: - The invoice is higher than expected [DOC-BILL-001#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001328,
+    "response_time_minutes": 2.2133333333333334e-05,
+    "input_index": 52
+  },
+  {
+    "ticket_id": "VAL-0054",
+    "channel": "email",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Sensitive intent requires human handling",
+    "classification": {
+      "intent": "data_residency",
+      "urgency": "medium",
+      "confidence": 0.6799,
+      "alternatives": [
+        {
+          "intent": "onboarding",
+          "confidence": 0.0208
+        },
+        {
+          "intent": "billing_query",
+          "confidence": 0.0185
+        },
+        {
+          "intent": "compliance_request",
+          "confidence": 0.0182
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-DATA-003#p4",
+        "doc_id": "DOC-DATA-003",
+        "title": "Data residency and regional storage",
+        "text": "## Notes\n\nMetadata such as account names and billing records is stored centrally regardless of the data region.",
+        "score": 0.1879
+      },
+      {
+        "passage_id": "DOC-DATA-003#p1",
+        "doc_id": "DOC-DATA-003",
+        "title": "Data residency and regional storage",
+        "text": "## Symptoms\n\n- A customer requires data to remain in a specific region\n- Latency is high for users far from the primary region\n- A compliance review has asked where data is held",
+        "score": 0.1394
+      },
+      {
+        "passage_id": "DOC-DATA-003#p3",
+        "doc_id": "DOC-DATA-003",
+        "title": "Data residency and regional storage",
+        "text": "## Resolution\n\n1. Check the region shown on the organisation settings page. This is fixed at creation and determines where primary data is stored.\n2. Enable read replicas in additional regions to reduce latency for distant users without moving primary storage.\n3. Review the backup replication setting if a single-region requirement applies, since cross-region replication is enabled by default.\n4. Migrating an organisation between regions requires a planned migration with support and involves a maintenance window.",
+        "score": 0.1317
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0054: Where is our data stored One of our customers has asked for written confirmation of where their data is physically stored. Could you point me to something I can share with them?",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.00132,
+    "response_time_minutes": 2.2e-05,
+    "input_index": 53
+  },
+  {
+    "ticket_id": "VAL-0055",
+    "channel": "chat",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "integration_help",
+      "urgency": "medium",
+      "confidence": 0.4337,
+      "alternatives": [
+        {
+          "intent": "billing_query",
+          "confidence": 0.0355
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0304
+        },
+        {
+          "intent": "data_residency",
+          "confidence": 0.0299
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-INT-001#p2",
+        "doc_id": "DOC-INT-001",
+        "title": "Connecting continuous integration pipelines",
+        "text": "## Common causes\n\n- A personal key was used rather than a service account\n- The pipeline environment lacks the configuration present locally\n- The service account was granted an organisation-wide role",
+        "score": 0.295
+      },
+      {
+        "passage_id": "DOC-INT-001#p3",
+        "doc_id": "DOC-INT-001",
+        "title": "Connecting continuous integration pipelines",
+        "text": "## Resolution\n\n1. Create a service account for the pipeline rather than using a personal key, so that access survives staff changes.\n2. Grant the service account only the projects and permissions the pipeline needs, and review that grant when the pipeline changes.\n3. Store the credential as an encrypted secret in your pipeline provider, never in the repository.\n4. Test the pipeline credential separately from the deployment logic, so that authentication failures are distinguishable from deployment failures.",
+        "score": 0.2546
+      },
+      {
+        "passage_id": "DOC-INT-001#p1",
+        "doc_id": "DOC-INT-001",
+        "title": "Connecting continuous integration pipelines",
+        "text": "## Symptoms\n\n- The pipeline cannot authenticate against CloudServe\n- Deployments succeed manually but fail from the pipeline\n- The pipeline has broader access than intended",
+        "score": 0.1906
+      }
+    ],
+    "answer": "According to our support documentation: - A personal key was used rather than a service account [DOC-INT-001#p2]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.00137,
+    "response_time_minutes": 2.283333333333333e-05,
+    "input_index": 54
+  },
+  {
+    "ticket_id": "VAL-0056",
+    "channel": "email",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "deployment_failure",
+      "urgency": "high",
+      "confidence": 0.704,
+      "alternatives": [
+        {
+          "intent": "database_issue",
+          "confidence": 0.02
+        },
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0164
+        },
+        {
+          "intent": "performance_degradation",
+          "confidence": 0.0162
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-ONB-001#p1",
+        "doc_id": "DOC-ONB-001",
+        "title": "First deployment: a walkthrough",
+        "text": "## Symptoms\n\n- A new user does not know where to begin\n- The first deployment fails for unclear reasons",
+        "score": 0.2152
+      },
+      {
+        "passage_id": "DOC-DEPLOY-001#p4",
+        "doc_id": "DOC-DEPLOY-001",
+        "title": "Container deployments failing during the health check phase",
+        "text": "## Notes\n\nA health check must return within the timeout using only local state. Endpoints that call a database will fail during a database incident and take the service down with them.",
+        "score": 0.2008
+      },
+      {
+        "passage_id": "DOC-DEPLOY-003#p1",
+        "doc_id": "DOC-DEPLOY-003",
+        "title": "Build failures caused by dependency resolution",
+        "text": "## Symptoms\n\n- Builds that previously succeeded now fail without code changes\n- The build works locally but fails in the pipeline\n- Dependency resolution takes far longer than usual",
+        "score": 0.1961
+      }
+    ],
+    "answer": "According to our support documentation: - A new user does not know where to begin [DOC-ONB-001#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001348,
+    "response_time_minutes": 2.2466666666666666e-05,
+    "input_index": 55
+  },
+  {
+    "ticket_id": "VAL-0057",
+    "channel": "email",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "deployment_failure",
+      "urgency": "medium",
+      "confidence": 0.6404,
+      "alternatives": [
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0223
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0218
+        },
+        {
+          "intent": "sso_configuration",
+          "confidence": 0.0187
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-DEPLOY-001#p1",
+        "doc_id": "DOC-DEPLOY-001",
+        "title": "Container deployments failing during the health check phase",
+        "text": "## Symptoms\n\n- The deployment reaches running and then rolls back\n- Logs show repeated health check timeouts\n- The service works locally but not when deployed",
+        "score": 0.4635
+      },
+      {
+        "passage_id": "DOC-DEPLOY-001#p4",
+        "doc_id": "DOC-DEPLOY-001",
+        "title": "Container deployments failing during the health check phase",
+        "text": "## Notes\n\nA health check must return within the timeout using only local state. Endpoints that call a database will fail during a database incident and take the service down with them.",
+        "score": 0.1613
+      },
+      {
+        "passage_id": "DOC-DEPLOY-001#p0",
+        "doc_id": "DOC-DEPLOY-001",
+        "title": "Container deployments failing during the health check phase",
+        "text": "# Container deployments failing during the health check phase\n\n**Applies to:** Container Service",
+        "score": 0.1433
+      }
+    ],
+    "answer": "According to our support documentation: - The deployment reaches running and then rolls back [DOC-DEPLOY-001#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.003445,
+    "response_time_minutes": 5.741666666666667e-05,
+    "input_index": 56
+  },
+  {
+    "ticket_id": "VAL-0058",
+    "channel": "docs_comment",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "api_key_issue",
+      "urgency": "medium",
+      "confidence": 0.4449,
+      "alternatives": [
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0325
+        },
+        {
+          "intent": "security_incident",
+          "confidence": 0.0324
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0309
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-AUTH-004#p3",
+        "doc_id": "DOC-AUTH-004",
+        "title": "API key rotation and scope management",
+        "text": "## Resolution\n\n1. Check the API keys page for the key's status and expiry. Revoked and expired keys are listed with the date and the user who acted.\n2. Review the scopes attached to the key. Read-only keys cannot write, and project-scoped keys cannot reach organisation endpoints.\n3. To rotate without downtime, create the replacement key first, deploy it, confirm traffic has moved, then revoke the old key.\n4. If a key has been exposed publicly, revoke it immediately rather than waiting for the rotation window.",
+        "score": 0.2032
+      },
+      {
+        "passage_id": "DOC-AUTH-004#p1",
+        "doc_id": "DOC-AUTH-004",
+        "title": "API key rotation and scope management",
+        "text": "## Symptoms\n\n- A previously working key returns 401 Unauthorized\n- A key works for some endpoints and not others\n- A key needs replacing after accidental exposure",
+        "score": 0.1687
+      },
+      {
+        "passage_id": "DOC-INT-001#p4",
+        "doc_id": "DOC-INT-001",
+        "title": "Connecting continuous integration pipelines",
+        "text": "## Notes\n\nService account keys do not expire by default. Set an expiry and rotate on a schedule.",
+        "score": 0.154
+      }
+    ],
+    "answer": "According to our support documentation: 1. Check the API keys page for the key's status and expiry. Revoked and expired keys are listed with the date and the user who acted. [DOC-AUTH-004#p3]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.002498,
+    "response_time_minutes": 4.163333333333333e-05,
+    "input_index": 57
+  },
+  {
+    "ticket_id": "VAL-0059",
+    "channel": "docs_comment",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "configuration_help",
+      "urgency": "medium",
+      "confidence": 0.548,
+      "alternatives": [
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0283
+        },
+        {
+          "intent": "deployment_failure",
+          "confidence": 0.0266
+        },
+        {
+          "intent": "data_residency",
+          "confidence": 0.0259
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-DEPLOY-004#p1",
+        "doc_id": "DOC-DEPLOY-004",
+        "title": "Configuring environment variables and secrets",
+        "text": "## Symptoms\n\n- The application cannot read a variable that appears to be set\n- A secret value appears in plain text in the logs\n- Configuration differs between environments unexpectedly",
+        "score": 0.2279
+      },
+      {
+        "passage_id": "DOC-DEPLOY-004#p4",
+        "doc_id": "DOC-DEPLOY-004",
+        "title": "Configuring environment variables and secrets",
+        "text": "## Notes\n\nA secret that has been printed to logs should be treated as exposed and rotated, even if the logs are private.",
+        "score": 0.1826
+      }
+    ],
+    "answer": "According to our support documentation: - The application cannot read a variable that appears to be set [DOC-DEPLOY-004#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001965,
+    "response_time_minutes": 3.275e-05,
+    "input_index": 58
+  },
+  {
+    "ticket_id": "VAL-0060",
+    "channel": "email",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "webhook_issue",
+      "urgency": "low",
+      "confidence": 0.4713,
+      "alternatives": [
+        {
+          "intent": "deployment_failure",
+          "confidence": 0.031
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0309
+        },
+        {
+          "intent": "sso_configuration",
+          "confidence": 0.0288
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-API-003#p1",
+        "doc_id": "DOC-API-003",
+        "title": "Webhook delivery, retries and signature verification",
+        "text": "## Symptoms\n\n- Webhooks are not arriving at the configured endpoint\n- The same event is delivered more than once\n- Signature verification fails",
+        "score": 0.5325
+      },
+      {
+        "passage_id": "DOC-API-003#p2",
+        "doc_id": "DOC-API-003",
+        "title": "Webhook delivery, retries and signature verification",
+        "text": "## Common causes\n\n- The endpoint returned a non-2xx status and delivery is being retried\n- The endpoint responded too slowly and the delivery timed out\n- The signature was computed over a parsed body rather than the raw bytes",
+        "score": 0.3175
+      },
+      {
+        "passage_id": "DOC-API-003#p0",
+        "doc_id": "DOC-API-003",
+        "title": "Webhook delivery, retries and signature verification",
+        "text": "# Webhook delivery, retries and signature verification\n\n**Applies to:** All plans",
+        "score": 0.3172
+      }
+    ],
+    "answer": "According to our support documentation: - Webhooks are not arriving at the configured endpoint [DOC-API-003#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.00148,
+    "response_time_minutes": 2.4666666666666665e-05,
+    "input_index": 59
+  },
+  {
+    "ticket_id": "VAL-0061",
+    "channel": "email",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "webhook_issue",
+      "urgency": "low",
+      "confidence": 0.4713,
+      "alternatives": [
+        {
+          "intent": "deployment_failure",
+          "confidence": 0.031
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0309
+        },
+        {
+          "intent": "sso_configuration",
+          "confidence": 0.0288
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-API-003#p1",
+        "doc_id": "DOC-API-003",
+        "title": "Webhook delivery, retries and signature verification",
+        "text": "## Symptoms\n\n- Webhooks are not arriving at the configured endpoint\n- The same event is delivered more than once\n- Signature verification fails",
+        "score": 0.5325
+      },
+      {
+        "passage_id": "DOC-API-003#p2",
+        "doc_id": "DOC-API-003",
+        "title": "Webhook delivery, retries and signature verification",
+        "text": "## Common causes\n\n- The endpoint returned a non-2xx status and delivery is being retried\n- The endpoint responded too slowly and the delivery timed out\n- The signature was computed over a parsed body rather than the raw bytes",
+        "score": 0.3175
+      },
+      {
+        "passage_id": "DOC-API-003#p0",
+        "doc_id": "DOC-API-003",
+        "title": "Webhook delivery, retries and signature verification",
+        "text": "# Webhook delivery, retries and signature verification\n\n**Applies to:** All plans",
+        "score": 0.3172
+      }
+    ],
+    "answer": "According to our support documentation: - Webhooks are not arriving at the configured endpoint [DOC-API-003#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001486,
+    "response_time_minutes": 2.4766666666666664e-05,
+    "input_index": 60
+  },
+  {
+    "ticket_id": "VAL-0062",
+    "channel": "docs_comment",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "integration_help",
+      "urgency": "low",
+      "confidence": 0.5759,
+      "alternatives": [
+        {
+          "intent": "database_issue",
+          "confidence": 0.0246
+        },
+        {
+          "intent": "sso_configuration",
+          "confidence": 0.0244
+        },
+        {
+          "intent": "account_access",
+          "confidence": 0.0223
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-INT-002#p4",
+        "doc_id": "DOC-INT-002",
+        "title": "Third party monitoring and log forwarding",
+        "text": "## Notes\n\nForwarding pauses after one hour of consecutive failures and must be resumed manually once the destination is healthy.",
+        "score": 0.3835
+      },
+      {
+        "passage_id": "DOC-INT-002#p0",
+        "doc_id": "DOC-INT-002",
+        "title": "Third party monitoring and log forwarding",
+        "text": "# Third party monitoring and log forwarding\n\n**Applies to:** Business and Enterprise plans",
+        "score": 0.2216
+      },
+      {
+        "passage_id": "DOC-INT-002#p1",
+        "doc_id": "DOC-INT-002",
+        "title": "Third party monitoring and log forwarding",
+        "text": "## Symptoms\n\n- Logs are not arriving at the external destination\n- Metrics are delayed compared with the console\n- Forwarded volume is higher than expected",
+        "score": 0.2109
+      }
+    ],
+    "answer": "According to our support documentation: Forwarding pauses after one hour of consecutive failures and must be resumed manually once the destination is healthy. [DOC-INT-002#p4]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001444,
+    "response_time_minutes": 2.4066666666666668e-05,
+    "input_index": 61
+  },
+  {
+    "ticket_id": "VAL-0063",
+    "channel": "email",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "account_access",
+      "urgency": "high",
+      "confidence": 0.5735,
+      "alternatives": [
+        {
+          "intent": "billing_query",
+          "confidence": 0.0265
+        },
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0262
+        },
+        {
+          "intent": "security_incident",
+          "confidence": 0.0238
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-ACCT-001#p2",
+        "doc_id": "DOC-ACCT-001",
+        "title": "Managing team members, roles and permissions",
+        "text": "## Common causes\n\n- The role was granted at project scope rather than organisation scope\n- The invitation was never accepted and the account does not exist\n- A group membership grants broader access than the direct role suggests",
+        "score": 0.2064
+      },
+      {
+        "passage_id": "DOC-AUTH-003#p4",
+        "doc_id": "DOC-AUTH-003",
+        "title": "Single sign-on configuration with SAML providers",
+        "text": "## Notes\n\nSAML changes take effect immediately for new sessions but existing sessions remain valid until they expire.",
+        "score": 0.1366
+      }
+    ],
+    "answer": "According to our support documentation: - The role was granted at project scope rather than organisation scope [DOC-ACCT-001#p2]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001424,
+    "response_time_minutes": 2.3733333333333332e-05,
+    "input_index": 62
+  },
+  {
+    "ticket_id": "VAL-0064",
+    "channel": "chat",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "api_usage_question",
+      "urgency": "medium",
+      "confidence": 0.5822,
+      "alternatives": [
+        {
+          "intent": "database_issue",
+          "confidence": 0.0262
+        },
+        {
+          "intent": "data_export",
+          "confidence": 0.0244
+        },
+        {
+          "intent": "sso_configuration",
+          "confidence": 0.0229
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-API-002#p1",
+        "doc_id": "DOC-API-002",
+        "title": "Pagination and handling large result sets",
+        "text": "## Symptoms\n\n- Only the first page of results is returned\n- Iterating through results misses or duplicates records\n- Large queries time out",
+        "score": 0.1727
+      },
+      {
+        "passage_id": "DOC-API-002#p2",
+        "doc_id": "DOC-API-002",
+        "title": "Pagination and handling large result sets",
+        "text": "## Common causes\n\n- The cursor from the previous response was not passed to the next request\n- Offset pagination was used against a changing collection\n- The page size requested exceeds the maximum",
+        "score": 0.1649
+      },
+      {
+        "passage_id": "DOC-API-002#p3",
+        "doc_id": "DOC-API-002",
+        "title": "Pagination and handling large result sets",
+        "text": "## Resolution\n\n1. Use cursor pagination for anything that may change while you iterate. Offset pagination will skip or repeat records when items are inserted mid-iteration.\n2. Pass the next_cursor value from each response as the cursor parameter of the following request, and stop when it is null.\n3. Keep page size at or below two hundred. Larger requests are rejected rather than truncated.\n4. For very large extracts, use the export endpoint, which runs asynchronously and returns a download link.",
+        "score": 0.1506
+      }
+    ],
+    "answer": "According to our support documentation: - Only the first page of results is returned [DOC-API-002#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001399,
+    "response_time_minutes": 2.3316666666666666e-05,
+    "input_index": 63
+  },
+  {
+    "ticket_id": "VAL-0065",
+    "channel": "email",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "billing_query",
+      "urgency": "low",
+      "confidence": 0.5653,
+      "alternatives": [
+        {
+          "intent": "compliance_request",
+          "confidence": 0.0262
+        },
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0239
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0238
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-BILL-001#p1",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "## Symptoms\n\n- The invoice is higher than expected\n- Charges appear for a service that is not in use\n- The billing period does not align with the calendar month",
+        "score": 0.3028
+      },
+      {
+        "passage_id": "DOC-BILL-001#p3",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "## Resolution\n\n1. Open the usage breakdown for the period, which itemises charges by service and by environment.\n2. Look for resources in staging or development environments, which are billed at the same rate as production.\n3. Check the billing period dates at the top of the invoice. The period runs from the anniversary of the subscription date.\n4. Set a usage alert on the billing page so that unexpected accrual is noticed during the period rather than at the end of it.",
+        "score": 0.3023
+      },
+      {
+        "passage_id": "DOC-BILL-001#p2",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "## Common causes\n\n- Usage-based charges accrued beyond the plan allowance\n- A resource was left running in a non-production environment\n- The billing period runs from the subscription date rather than the first of the month",
+        "score": 0.1851
+      }
+    ],
+    "answer": "According to our support documentation: - The invoice is higher than expected [DOC-BILL-001#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001572,
+    "response_time_minutes": 2.62e-05,
+    "input_index": 64
+  },
+  {
+    "ticket_id": "VAL-0066",
+    "channel": "forum",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Sensitive intent requires human handling",
+    "classification": {
+      "intent": "data_residency",
+      "urgency": "medium",
+      "confidence": 0.5969,
+      "alternatives": [
+        {
+          "intent": "billing_query",
+          "confidence": 0.0258
+        },
+        {
+          "intent": "onboarding",
+          "confidence": 0.0248
+        },
+        {
+          "intent": "security_incident",
+          "confidence": 0.0234
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-DATA-003#p3",
+        "doc_id": "DOC-DATA-003",
+        "title": "Data residency and regional storage",
+        "text": "## Resolution\n\n1. Check the region shown on the organisation settings page. This is fixed at creation and determines where primary data is stored.\n2. Enable read replicas in additional regions to reduce latency for distant users without moving primary storage.\n3. Review the backup replication setting if a single-region requirement applies, since cross-region replication is enabled by default.\n4. Migrating an organisation between regions requires a planned migration with support and involves a maintenance window.",
+        "score": 0.1529
+      },
+      {
+        "passage_id": "DOC-DATA-002#p1",
+        "doc_id": "DOC-DATA-002",
+        "title": "Backups, retention and point-in-time restore",
+        "text": "## Symptoms\n\n- Data was deleted and needs recovering\n- A restore is taking longer than expected\n- A backup is older than expected",
+        "score": 0.1214
+      },
+      {
+        "passage_id": "DOC-DATA-003#p4",
+        "doc_id": "DOC-DATA-003",
+        "title": "Data residency and regional storage",
+        "text": "## Notes\n\nMetadata such as account names and billing records is stored centrally regardless of the data region.",
+        "score": 0.1149
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0066: Question about backup regions one of our customers has asked for written confirmation of where their data is physically stored. Can you please point me to something I can share with them? sorry for my english.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.001838,
+    "response_time_minutes": 3.063333333333333e-05,
+    "input_index": 65
+  },
+  {
+    "ticket_id": "VAL-0067",
+    "channel": "docs_comment",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Explicit safety restriction on supplied ticket",
+    "classification": {
+      "intent": "security_incident",
+      "urgency": "high",
+      "confidence": 0.6063,
+      "alternatives": [
+        {
+          "intent": "compliance_request",
+          "confidence": 0.0232
+        },
+        {
+          "intent": "sso_configuration",
+          "confidence": 0.0219
+        },
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0216
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-SEC-001#p1",
+        "doc_id": "DOC-SEC-001",
+        "title": "Responding to a suspected account compromise",
+        "text": "## Symptoms\n\n- Unrecognised activity appears in the audit log\n- A user reports credentials may have been exposed\n- Resources were created that nobody claims",
+        "score": 0.4038
+      },
+      {
+        "passage_id": "DOC-SEC-003#p4",
+        "doc_id": "DOC-SEC-003",
+        "title": "Audit logging and compliance evidence",
+        "text": "## Notes\n\nAudit log exports are themselves audited, including the fields selected and the destination.",
+        "score": 0.1871
+      },
+      {
+        "passage_id": "DOC-SEC-003#p2",
+        "doc_id": "DOC-SEC-003",
+        "title": "Audit logging and compliance evidence",
+        "text": "## Common causes\n\n- The event predates the retention window\n- The event type is not covered by the audit log\n- The organisation is on a plan with shorter retention",
+        "score": 0.155
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0067: Suspicious activity in audit log We have found activity in our audit log from an address none of us recognise, going back to yesterday morning. Resources were created that nobody on the team claims. We need help urgently.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.001548,
+    "response_time_minutes": 2.5799999999999997e-05,
+    "input_index": 66
+  },
+  {
+    "ticket_id": "VAL-0068",
+    "channel": "email",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Explicit safety restriction on supplied ticket",
+    "classification": {
+      "intent": "security_incident",
+      "urgency": "high",
+      "confidence": 0.4891,
+      "alternatives": [
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0322
+        },
+        {
+          "intent": "compliance_request",
+          "confidence": 0.0295
+        },
+        {
+          "intent": "deployment_failure",
+          "confidence": 0.0275
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-SEC-001#p1",
+        "doc_id": "DOC-SEC-001",
+        "title": "Responding to a suspected account compromise",
+        "text": "## Symptoms\n\n- Unrecognised activity appears in the audit log\n- A user reports credentials may have been exposed\n- Resources were created that nobody claims",
+        "score": 0.4334
+      },
+      {
+        "passage_id": "DOC-SEC-003#p4",
+        "doc_id": "DOC-SEC-003",
+        "title": "Audit logging and compliance evidence",
+        "text": "## Notes\n\nAudit log exports are themselves audited, including the fields selected and the destination.",
+        "score": 0.2008
+      },
+      {
+        "passage_id": "DOC-SEC-003#p2",
+        "doc_id": "DOC-SEC-003",
+        "title": "Audit logging and compliance evidence",
+        "text": "## Common causes\n\n- The event predates the retention window\n- The event type is not covered by the audit log\n- The organisation is on a plan with shorter retention",
+        "score": 0.1663
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0068: Suspicious activity in audit log we having found activity in our audit log from address none of us recognise, going back to around 14:00 yesterday. Resources created that nobody on the team claims.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.00151,
+    "response_time_minutes": 2.5166666666666667e-05,
+    "input_index": 67
+  },
+  {
+    "ticket_id": "VAL-0069",
+    "channel": "chat",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "configuration_help",
+      "urgency": "medium",
+      "confidence": 0.4474,
+      "alternatives": [
+        {
+          "intent": "database_issue",
+          "confidence": 0.0356
+        },
+        {
+          "intent": "webhook_issue",
+          "confidence": 0.0323
+        },
+        {
+          "intent": "data_export",
+          "confidence": 0.03
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-ACCT-002#p3",
+        "doc_id": "DOC-ACCT-002",
+        "title": "Organisation setup and project structure",
+        "text": "## Resolution\n\n1. Use a separate project per environment where isolation of configuration and billing matters. Folders within a project share configuration by design.\n2. Set shared values at organisation scope and override at project scope, rather than repeating values in every project.\n3. Plan project structure around who should be able to see what, since permissions are granted at project scope most naturally.\n4. Contact support for a project migration between organisations, which requires a short maintenance window.",
+        "score": 0.1836
+      },
+      {
+        "passage_id": "DOC-DEPLOY-004#p2",
+        "doc_id": "DOC-DEPLOY-004",
+        "title": "Configuring environment variables and secrets",
+        "text": "## Common causes\n\n- The variable was set at project scope but read at service scope\n- The application logs its configuration at startup\n- An environment override exists that is not visible on the main settings page",
+        "score": 0.1568
+      },
+      {
+        "passage_id": "DOC-DEPLOY-004#p3",
+        "doc_id": "DOC-DEPLOY-004",
+        "title": "Configuring environment variables and secrets",
+        "text": "## Resolution\n\n1. Check the scope at which the variable was defined. Service scope overrides project scope, and project scope overrides organisation defaults.\n2. Store anything sensitive as a secret rather than a variable. Secrets are masked in logs and are not readable through the API after creation.\n3. Review the environment overrides page, which lists values that differ from the defaults for each environment.\n4. Redeploy after changing configuration. Running containers do not pick up new values without a restart.",
+        "score": 0.1408
+      }
+    ],
+    "answer": "According to our support documentation: 1. Use a separate project per environment where isolation of configuration and billing matters. Folders within a project share configuration by design. [DOC-ACCT-002#p3]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001456,
+    "response_time_minutes": 2.4266666666666666e-05,
+    "input_index": 68
+  },
+  {
+    "ticket_id": "VAL-0070",
+    "channel": "docs_comment",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "sso_configuration",
+      "urgency": "medium",
+      "confidence": 0.6725,
+      "alternatives": [
+        {
+          "intent": "integration_help",
+          "confidence": 0.0201
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0176
+        },
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0171
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-AUTH-003#p1",
+        "doc_id": "DOC-AUTH-003",
+        "title": "Single sign-on configuration with SAML providers",
+        "text": "## Symptoms\n\n- Users are redirected to the identity provider and returned to an error page\n- SSO works for some users and not others\n- New users are not provisioned automatically",
+        "score": 0.3965
+      },
+      {
+        "passage_id": "DOC-AUTH-003#p0",
+        "doc_id": "DOC-AUTH-003",
+        "title": "Single sign-on configuration with SAML providers",
+        "text": "# Single sign-on configuration with SAML providers\n\n**Applies to:** Business and Enterprise plans",
+        "score": 0.191
+      },
+      {
+        "passage_id": "DOC-AUTH-003#p3",
+        "doc_id": "DOC-AUTH-003",
+        "title": "Single sign-on configuration with SAML providers",
+        "text": "## Resolution\n\n1. Compare the assertion consumer service URL in your identity provider against the value shown on the SSO settings page. They must match exactly, including the trailing path.\n2. Inspect a failing assertion and confirm the NameID is the user's email address in lower case.\n3. Enable just-in-time provisioning if new users should be created on first login, and set a default role for provisioned users.\n4. Keep at least one administrator account with password access while testing, so a misconfiguration does not lock the whole organisation out.",
+        "score": 0.1094
+      }
+    ],
+    "answer": "According to our support documentation: - Users are redirected to the identity provider and returned to an error page [DOC-AUTH-003#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001525,
+    "response_time_minutes": 2.5416666666666667e-05,
+    "input_index": 69
+  },
+  {
+    "ticket_id": "VAL-0071",
+    "channel": "docs_comment",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "quota_or_overage",
+      "urgency": "medium",
+      "confidence": 0.5721,
+      "alternatives": [
+        {
+          "intent": "database_issue",
+          "confidence": 0.0254
+        },
+        {
+          "intent": "feature_request",
+          "confidence": 0.0229
+        },
+        {
+          "intent": "billing_query",
+          "confidence": 0.0228
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-BILL-003#p1",
+        "doc_id": "DOC-BILL-003",
+        "title": "Usage limits, overage and spend controls",
+        "text": "## Symptoms\n\n- Service was throttled after a traffic increase\n- Overage charges appeared unexpectedly\n- A spend cap stopped a production workload",
+        "score": 0.5734
+      },
+      {
+        "passage_id": "DOC-BILL-003#p3",
+        "doc_id": "DOC-BILL-003",
+        "title": "Usage limits, overage and spend controls",
+        "text": "## Resolution\n\n1. Check the current period usage against the plan allowance on the billing page.\n2. Decide deliberately between a hard spend cap, which stops the service, and overage, which continues at the listed rate. Production workloads generally need the second.\n3. Configure alerts at fifty, eighty and ninety-five per cent of allowance rather than relying on the cap as a warning.\n4. Where a cap has stopped a production service, an account owner can raise it immediately from the billing page and service resumes within a minute.",
+        "score": 0.2298
+      },
+      {
+        "passage_id": "DOC-BILL-003#p2",
+        "doc_id": "DOC-BILL-003",
+        "title": "Usage limits, overage and spend controls",
+        "text": "## Common causes\n\n- Plan allowance was consumed before the end of the period\n- A spend cap was configured and reached\n- Overage protection is disabled, so usage continued beyond the allowance",
+        "score": 0.1887
+      }
+    ],
+    "answer": "According to our support documentation: - Service was throttled after a traffic increase [DOC-BILL-003#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001665,
+    "response_time_minutes": 2.775e-05,
+    "input_index": 70
+  },
+  {
+    "ticket_id": "VAL-0072",
+    "channel": "docs_comment",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "billing_query",
+      "urgency": "low",
+      "confidence": 0.652,
+      "alternatives": [
+        {
+          "intent": "onboarding",
+          "confidence": 0.0197
+        },
+        {
+          "intent": "quota_or_overage",
+          "confidence": 0.0194
+        },
+        {
+          "intent": "sso_configuration",
+          "confidence": 0.0188
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-BILL-001#p1",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "## Symptoms\n\n- The invoice is higher than expected\n- Charges appear for a service that is not in use\n- The billing period does not align with the calendar month",
+        "score": 0.5177
+      },
+      {
+        "passage_id": "DOC-BILL-001#p0",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "# Understanding your invoice and usage breakdown\n\n**Applies to:** All plans",
+        "score": 0.1571
+      },
+      {
+        "passage_id": "DOC-INT-002#p1",
+        "doc_id": "DOC-INT-002",
+        "title": "Third party monitoring and log forwarding",
+        "text": "## Symptoms\n\n- Logs are not arriving at the external destination\n- Metrics are delayed compared with the console\n- Forwarded volume is higher than expected",
+        "score": 0.1468
+      }
+    ],
+    "answer": "According to our support documentation: - The invoice is higher than expected [DOC-BILL-001#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.001923,
+    "response_time_minutes": 3.205e-05,
+    "input_index": 71
+  },
+  {
+    "ticket_id": "VAL-0073",
+    "channel": "forum",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Low classification confidence",
+    "classification": {
+      "intent": "billing_query",
+      "urgency": "medium",
+      "confidence": 0.2694,
+      "alternatives": [
+        {
+          "intent": "database_issue",
+          "confidence": 0.0492
+        },
+        {
+          "intent": "performance_degradation",
+          "confidence": 0.0487
+        },
+        {
+          "intent": "webhook_issue",
+          "confidence": 0.0414
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-BILL-001#p1",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "## Symptoms\n\n- The invoice is higher than expected\n- Charges appear for a service that is not in use\n- The billing period does not align with the calendar month",
+        "score": 0.3727
+      },
+      {
+        "passage_id": "DOC-INT-002#p1",
+        "doc_id": "DOC-INT-002",
+        "title": "Third party monitoring and log forwarding",
+        "text": "## Symptoms\n\n- Logs are not arriving at the external destination\n- Metrics are delayed compared with the console\n- Forwarded volume is higher than expected",
+        "score": 0.1556
+      },
+      {
+        "passage_id": "DOC-BILL-002#p1",
+        "doc_id": "DOC-BILL-002",
+        "title": "Changing plans, and how proration is calculated",
+        "text": "## Symptoms\n\n- The charge after an upgrade differs from the advertised price\n- A downgrade did not take effect immediately\n- A credit is expected but not visible",
+        "score": 0.1205
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0073: Invoice higher than expected bill is very high this month. i not understand the charge. please explain what is this.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.002136,
+    "response_time_minutes": 3.56e-05,
+    "input_index": 72
+  },
+  {
+    "ticket_id": "VAL-0074",
+    "channel": "docs_comment",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "account_access",
+      "urgency": "medium",
+      "confidence": 0.3179,
+      "alternatives": [
+        {
+          "intent": "sso_configuration",
+          "confidence": 0.0399
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.039
+        },
+        {
+          "intent": "onboarding",
+          "confidence": 0.0367
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-ACCT-001#p3",
+        "doc_id": "DOC-ACCT-001",
+        "title": "Managing team members, roles and permissions",
+        "text": "## Resolution\n\n1. Check the effective permissions view for the user, which resolves direct roles and group memberships together.\n2. Confirm the invitation was accepted. Pending invitations appear in a separate section and expire after seven days.\n3. Remove a departing user rather than only changing their password, and revoke any API keys they created.\n4. Prefer group membership to direct role assignment, so that access can be reviewed in one place.",
+        "score": 0.3139
+      },
+      {
+        "passage_id": "DOC-ACCT-001#p2",
+        "doc_id": "DOC-ACCT-001",
+        "title": "Managing team members, roles and permissions",
+        "text": "## Common causes\n\n- The role was granted at project scope rather than organisation scope\n- The invitation was never accepted and the account does not exist\n- A group membership grants broader access than the direct role suggests",
+        "score": 0.2181
+      },
+      {
+        "passage_id": "DOC-ACCT-001#p0",
+        "doc_id": "DOC-ACCT-001",
+        "title": "Managing team members, roles and permissions",
+        "text": "# Managing team members, roles and permissions\n\n**Applies to:** All plans",
+        "score": 0.212
+      }
+    ],
+    "answer": "According to our support documentation: 1. Check the effective permissions view for the user, which resolves direct roles and group memberships together. [DOC-ACCT-001#p3]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.004106,
+    "response_time_minutes": 6.843333333333333e-05,
+    "input_index": 73
+  },
+  {
+    "ticket_id": "VAL-0075",
+    "channel": "docs_comment",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "api_key_issue",
+      "urgency": "medium",
+      "confidence": 0.4543,
+      "alternatives": [
+        {
+          "intent": "account_access",
+          "confidence": 0.0335
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0304
+        },
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0287
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-AUTH-004#p1",
+        "doc_id": "DOC-AUTH-004",
+        "title": "API key rotation and scope management",
+        "text": "## Symptoms\n\n- A previously working key returns 401 Unauthorized\n- A key works for some endpoints and not others\n- A key needs replacing after accidental exposure",
+        "score": 0.2817
+      },
+      {
+        "passage_id": "DOC-AUTH-004#p0",
+        "doc_id": "DOC-AUTH-004",
+        "title": "API key rotation and scope management",
+        "text": "# API key rotation and scope management\n\n**Applies to:** All plans",
+        "score": 0.2485
+      },
+      {
+        "passage_id": "DOC-AUTH-004#p3",
+        "doc_id": "DOC-AUTH-004",
+        "title": "API key rotation and scope management",
+        "text": "## Resolution\n\n1. Check the API keys page for the key's status and expiry. Revoked and expired keys are listed with the date and the user who acted.\n2. Review the scopes attached to the key. Read-only keys cannot write, and project-scoped keys cannot reach organisation endpoints.\n3. To rotate without downtime, create the replacement key first, deploy it, confirm traffic has moved, then revoke the old key.\n4. If a key has been exposed publicly, revoke it immediately rather than waiting for the rotation window.",
+        "score": 0.2141
+      }
+    ],
+    "answer": "According to our support documentation: - A previously working key returns 401 Unauthorized [DOC-AUTH-004#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.003058,
+    "response_time_minutes": 5.096666666666667e-05,
+    "input_index": 74
+  },
+  {
+    "ticket_id": "VAL-0076",
+    "channel": "email",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Sensitive intent requires human handling",
+    "classification": {
+      "intent": "data_residency",
+      "urgency": "medium",
+      "confidence": 0.6574,
+      "alternatives": [
+        {
+          "intent": "onboarding",
+          "confidence": 0.0204
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0185
+        },
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.018
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-DATA-003#p1",
+        "doc_id": "DOC-DATA-003",
+        "title": "Data residency and regional storage",
+        "text": "## Symptoms\n\n- A customer requires data to remain in a specific region\n- Latency is high for users far from the primary region\n- A compliance review has asked where data is held",
+        "score": 0.2545
+      },
+      {
+        "passage_id": "DOC-DATA-003#p2",
+        "doc_id": "DOC-DATA-003",
+        "title": "Data residency and regional storage",
+        "text": "## Common causes\n\n- The organisation was created in a region that no longer suits the requirement\n- Read traffic is being served from the primary region only\n- Backups are replicated to a second region by default",
+        "score": 0.2439
+      },
+      {
+        "passage_id": "DOC-DATA-003#p4",
+        "doc_id": "DOC-DATA-003",
+        "title": "Data residency and regional storage",
+        "text": "## Notes\n\nMetadata such as account names and billing records is stored centrally regardless of the data region.",
+        "score": 0.1306
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0076: Need data to stay in the EU We need our data to remain within the EU for a contract we are signing. Our organisation was created some time ago and I am not sure which region it is in.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.002686,
+    "response_time_minutes": 4.4766666666666666e-05,
+    "input_index": 75
+  },
+  {
+    "ticket_id": "VAL-0077",
+    "channel": "chat",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "billing_query",
+      "urgency": "medium",
+      "confidence": 0.4099,
+      "alternatives": [
+        {
+          "intent": "account_access",
+          "confidence": 0.041
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0332
+        },
+        {
+          "intent": "compliance_request",
+          "confidence": 0.0327
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-BILL-001#p1",
+        "doc_id": "DOC-BILL-001",
+        "title": "Understanding your invoice and usage breakdown",
+        "text": "## Symptoms\n\n- The invoice is higher than expected\n- Charges appear for a service that is not in use\n- The billing period does not align with the calendar month",
+        "score": 0.4183
+      },
+      {
+        "passage_id": "DOC-AUTH-003#p2",
+        "doc_id": "DOC-AUTH-003",
+        "title": "Single sign-on configuration with SAML providers",
+        "text": "## Common causes\n\n- The assertion consumer service URL does not match the value registered with CloudServe\n- The email attribute in the assertion does not match the CloudServe account email\n- Just-in-time provisioning is disabled on the connection",
+        "score": 0.1686
+      },
+      {
+        "passage_id": "DOC-ONB-001#p2",
+        "doc_id": "DOC-ONB-001",
+        "title": "First deployment: a walkthrough",
+        "text": "## Common causes\n\n- Required configuration has not been set\n- The project structure does not match what the build expects",
+        "score": 0.1682
+      }
+    ],
+    "answer": "According to our support documentation: - The invoice is higher than expected [DOC-BILL-001#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.002417,
+    "response_time_minutes": 4.0283333333333334e-05,
+    "input_index": 76
+  },
+  {
+    "ticket_id": "VAL-0078",
+    "channel": "docs_comment",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "database_issue",
+      "urgency": "medium",
+      "confidence": 0.3881,
+      "alternatives": [
+        {
+          "intent": "unclear_request",
+          "confidence": 0.0364
+        },
+        {
+          "intent": "billing_query",
+          "confidence": 0.0327
+        },
+        {
+          "intent": "deployment_failure",
+          "confidence": 0.0324
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-DATA-002#p1",
+        "doc_id": "DOC-DATA-002",
+        "title": "Backups, retention and point-in-time restore",
+        "text": "## Symptoms\n\n- Data was deleted and needs recovering\n- A restore is taking longer than expected\n- A backup is older than expected",
+        "score": 0.1925
+      },
+      {
+        "passage_id": "DOC-PERF-003#p1",
+        "doc_id": "DOC-PERF-003",
+        "title": "Database connection pool exhaustion",
+        "text": "## Symptoms\n\n- Errors indicating no connection is available\n- Latency increases sharply as traffic grows\n- The database reports far fewer active queries than the application expects",
+        "score": 0.1833
+      },
+      {
+        "passage_id": "DOC-PERF-003#p0",
+        "doc_id": "DOC-PERF-003",
+        "title": "Database connection pool exhaustion",
+        "text": "# Database connection pool exhaustion\n\n**Applies to:** Managed Database",
+        "score": 0.1498
+      }
+    ],
+    "answer": "According to our support documentation: - Data was deleted and needs recovering [DOC-DATA-002#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.002254,
+    "response_time_minutes": 3.756666666666667e-05,
+    "input_index": 77
+  },
+  {
+    "ticket_id": "VAL-0079",
+    "channel": "email",
+    "status": "escalated",
+    "route": "escalate",
+    "reason": "Sensitive intent requires human handling",
+    "classification": {
+      "intent": "data_residency",
+      "urgency": "low",
+      "confidence": 0.6857,
+      "alternatives": [
+        {
+          "intent": "onboarding",
+          "confidence": 0.0208
+        },
+        {
+          "intent": "compliance_request",
+          "confidence": 0.0181
+        },
+        {
+          "intent": "billing_query",
+          "confidence": 0.0179
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-DATA-003#p4",
+        "doc_id": "DOC-DATA-003",
+        "title": "Data residency and regional storage",
+        "text": "## Notes\n\nMetadata such as account names and billing records is stored centrally regardless of the data region.",
+        "score": 0.1595
+      },
+      {
+        "passage_id": "DOC-DATA-003#p1",
+        "doc_id": "DOC-DATA-003",
+        "title": "Data residency and regional storage",
+        "text": "## Symptoms\n\n- A customer requires data to remain in a specific region\n- Latency is high for users far from the primary region\n- A compliance review has asked where data is held",
+        "score": 0.155
+      },
+      {
+        "passage_id": "DOC-DATA-002#p3",
+        "doc_id": "DOC-DATA-002",
+        "title": "Backups, retention and point-in-time restore",
+        "text": "## Resolution\n\n1. Identify the point you need to restore to. Point-in-time recovery covers any moment within the retention window rather than only backup times.\n2. Restore into a new database instance rather than over the existing one, so the current state is preserved while you verify the restore.\n3. Allow roughly ten minutes per hundred gigabytes for the restore, and considerably longer where the instance is also under load.\n4. Verify the restored data before switching traffic, and keep the original instance until that verification is complete.",
+        "score": 0.1123
+      }
+    ],
+    "answer": null,
+    "escalation_summary": "Ticket VAL-0079: Need data to stay in the EU one of our customers has asked for written confirmation of where their data is physically stored. Can you please point me to something I can share with them? kindly check and revert.",
+    "validation": {
+      "passed": false,
+      "performed": false,
+      "checks": {}
+    },
+    "latency_seconds": 0.002144,
+    "response_time_minutes": 3.573333333333333e-05,
+    "input_index": 78
+  },
+  {
+    "ticket_id": "VAL-0080",
+    "channel": "chat",
+    "status": "answered",
+    "route": "auto_respond",
+    "reason": "Relevant source and safety checks passed",
+    "classification": {
+      "intent": "deployment_failure",
+      "urgency": "high",
+      "confidence": 0.4287,
+      "alternatives": [
+        {
+          "intent": "authentication_failure",
+          "confidence": 0.0402
+        },
+        {
+          "intent": "performance_degradation",
+          "confidence": 0.0333
+        },
+        {
+          "intent": "database_issue",
+          "confidence": 0.0326
+        }
+      ]
+    },
+    "sources": [
+      {
+        "passage_id": "DOC-DEPLOY-003#p1",
+        "doc_id": "DOC-DEPLOY-003",
+        "title": "Build failures caused by dependency resolution",
+        "text": "## Symptoms\n\n- Builds that previously succeeded now fail without code changes\n- The build works locally but fails in the pipeline\n- Dependency resolution takes far longer than usual",
+        "score": 0.2738
+      },
+      {
+        "passage_id": "DOC-DEPLOY-003#p0",
+        "doc_id": "DOC-DEPLOY-003",
+        "title": "Build failures caused by dependency resolution",
+        "text": "# Build failures caused by dependency resolution\n\n**Applies to:** Build Service",
+        "score": 0.22
+      },
+      {
+        "passage_id": "DOC-DEPLOY-003#p4",
+        "doc_id": "DOC-DEPLOY-003",
+        "title": "Build failures caused by dependency resolution",
+        "text": "## Notes\n\nBuild logs retain the full resolution output for thirty days, which is usually enough to identify which version changed.",
+        "score": 0.1914
+      }
+    ],
+    "answer": "According to our support documentation: - Builds that previously succeeded now fail without code changes [DOC-DEPLOY-003#p1]",
+    "escalation_summary": null,
+    "validation": {
+      "passed": true,
+      "checks": {
+        "private_data": [],
+        "unsupported_citation": [],
+        "grounding": []
+      },
+      "performed": true
+    },
+    "latency_seconds": 0.003572,
+    "response_time_minutes": 5.9533333333333335e-05,
+    "input_index": 79
+  }
+]

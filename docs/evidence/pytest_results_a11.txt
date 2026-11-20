@@ -1,0 +1,34 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-9.0.2, pluggy-1.6.0 -- /opt/pyvenv/bin/python
+cachedir: .pytest_cache
+metadata: {'Python': '3.13.5', 'Platform': 'Linux-6.18.57-x86_64-with-glibc2.41', 'Packages': {'pytest': '9.0.2', 'pluggy': '1.6.0'}, 'Plugins': {'anyio': '4.13.0', 'ddtrace': '4.4.0', 'Faker': '40.1.2', 'asyncio': '1.3.0', 'cov': '7.0.0', 'json-report': '1.5.0', 'metadata': '3.1.1'}, 'PLATFORM': 'linux/amd64', 'CI': 'true'}
+rootdir: /mnt/data/stage5_work/CloudServe_AI_Support
+plugins: anyio-4.13.0, ddtrace-4.4.0, Faker-40.1.2, asyncio-1.3.0, cov-7.0.0, json-report-1.5.0, metadata-3.1.1
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 23 items
+
+tests/test_audit_regressions.py::test_unsupported_excerpt_blocked PASSED [  4%]
+tests/test_audit_regressions.py::test_no_verified_fcr PASSED             [  8%]
+tests/test_audit_regressions.py::test_generated_answer_is_verbatim_when_sent PASSED [ 13%]
+tests/test_audit_regressions.py::test_api_persistent_log_and_message_alias PASSED [ 17%]
+tests/test_failure_handling.py::test_classifier_dependency_failure_safely_escalates[error0] PASSED [ 21%]
+tests/test_failure_handling.py::test_classifier_dependency_failure_safely_escalates[error1] PASSED [ 26%]
+tests/test_failure_handling.py::test_retrieval_rate_limit_safely_escalates PASSED [ 30%]
+tests/test_failure_handling.py::test_answer_validation_outage_safely_escalates PASSED [ 34%]
+tests/test_failure_handling.py::test_unattended_batch_continues_after_uncaught_ticket_error PASSED [ 39%]
+tests/test_failure_handling.py::test_malformed_ticket_does_not_crash PASSED [ 43%]
+tests/test_pipeline.py::test_channels[email] PASSED                      [ 47%]
+tests/test_pipeline.py::test_channels[chat] PASSED                       [ 52%]
+tests/test_pipeline.py::test_channels[docs_comment] PASSED               [ 56%]
+tests/test_pipeline.py::test_channels[forum] PASSED                      [ 60%]
+tests/test_pipeline.py::test_classification PASSED                       [ 65%]
+tests/test_pipeline.py::test_retrieval_sources_resolve PASSED            [ 69%]
+tests/test_pipeline.py::test_deterministic_route PASSED                  [ 73%]
+tests/test_pipeline.py::test_guardrail_blocks PASSED                     [ 78%]
+tests/test_pipeline.py::test_sensitive_escalates PASSED                  [ 82%]
+tests/test_pipeline.py::test_no_source PASSED                            [ 86%]
+tests/test_pipeline.py::test_empty_and_malformed PASSED                  [ 91%]
+tests/test_pipeline.py::test_full_batch PASSED                           [ 95%]
+tests/test_pipeline.py::test_prompt_injection_blocked PASSED             [100%]
+
+============================== 23 passed in 6.83s ==============================

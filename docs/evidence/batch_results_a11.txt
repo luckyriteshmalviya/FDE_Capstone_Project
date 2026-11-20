@@ -1,0 +1,7 @@
+{
+  "tickets_processed": 80,
+  "answered_automatically": 47,
+  "escalated": 33,
+  "blocked_by_guardrails": 0,
+  "complete_run": true
+}

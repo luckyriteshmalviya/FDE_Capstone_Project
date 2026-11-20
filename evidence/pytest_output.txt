@@ -1,0 +1,24 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-9.0.2, pluggy-1.6.0 -- /opt/pyvenv/bin/python
+cachedir: .pytest_cache
+metadata: {'Python': '3.13.5', 'Platform': 'Linux-6.18.57-x86_64-with-glibc2.41', 'Packages': {'pytest': '9.0.2', 'pluggy': '1.6.0'}, 'Plugins': {'anyio': '4.13.0', 'ddtrace': '4.4.0', 'Faker': '40.1.2', 'asyncio': '1.3.0', 'cov': '7.0.0', 'json-report': '1.5.0', 'metadata': '3.1.1'}, 'PLATFORM': 'linux/amd64', 'CI': 'true'}
+rootdir: /mnt/data/cloudserve_stage5/CloudServe_AI_Support
+plugins: anyio-4.13.0, ddtrace-4.4.0, Faker-40.1.2, asyncio-1.3.0, cov-7.0.0, json-report-1.5.0, metadata-3.1.1
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 13 items
+
+tests/test_pipeline.py::test_channels[email] PASSED                      [  7%]
+tests/test_pipeline.py::test_channels[chat] PASSED                       [ 15%]
+tests/test_pipeline.py::test_channels[docs_comment] PASSED               [ 23%]
+tests/test_pipeline.py::test_channels[forum] PASSED                      [ 30%]
+tests/test_pipeline.py::test_classification PASSED                       [ 38%]
+tests/test_pipeline.py::test_retrieval_sources_resolve PASSED            [ 46%]
+tests/test_pipeline.py::test_deterministic_route PASSED                  [ 53%]
+tests/test_pipeline.py::test_guardrail_blocks PASSED                     [ 61%]
+tests/test_pipeline.py::test_sensitive_escalates PASSED                  [ 69%]
+tests/test_pipeline.py::test_no_source PASSED                            [ 76%]
+tests/test_pipeline.py::test_empty_and_malformed PASSED                  [ 84%]
+tests/test_pipeline.py::test_full_batch PASSED                           [ 92%]
+tests/test_pipeline.py::test_prompt_injection_blocked PASSED             [100%]
+
+============================== 13 passed in 2.46s ==============================
