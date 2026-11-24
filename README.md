@@ -3,9 +3,9 @@
 A reproducible **offline baseline** for support-ticket classification, TF-IDF knowledge retrieval, deterministic routing, extractive grounded answers, safety validation, and unattended evaluation. **No LLM provider is called.** Do not describe this as an LLM-generated system. It intentionally trades generative fluency for reproducibility and low cost.
 
 ## Requirements
-Python 3.11 or 3.12 recommended.
-No API key required. 
-Run commands from the repository root.
+Python 3.11 or 3.12 recommended.    
+No API key required.   
+Run commands from the repository root.  
 
 ### Windows PowerShell
 ```powershell
